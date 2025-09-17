@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-    max-width: 1920px;
+    max-width: 100%;
     margin: 0 auto;
     background-color: #ffffff;
 }
@@ -26,7 +26,7 @@ body {
     padding: 25px 200px;
     height: 100px;
     background-color: #ffffff;
-    border-bottom: 1px solid #e4e4e6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -54,7 +54,7 @@ body {
 .gnb {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 100px;
 }
 
 .nav-item {
@@ -81,11 +81,12 @@ body {
 
 .nav-line {
     width: 0;
-    height: 2px;
-    background-color: #0064dd;
+    height: 6px;
+    background: linear-gradient(90deg, #0064dd 0%, #088ec5 100%);
+    border-radius: 3px;
     transition: width 0.3s ease;
     position: absolute;
-    bottom: 0;
+    bottom: -27px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -149,7 +150,7 @@ body {
 
 /* Map Container */
 .map-container {
-    flex: 0 0 640px;
+    flex: 0 0 40%;
     height: auto;
     min-height: 1093px;
 }
@@ -168,7 +169,10 @@ body {
 .map-image {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #e8f4fd 0%, #d1e7f5 100%);
+    background-image: url('images/map_sample.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
 }
 
@@ -309,7 +313,7 @@ body {
 
 /* Info Panel */
 .info-panel {
-    flex: 1;
+    flex: 0 0 60%;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -834,8 +838,7 @@ body {
 .footer {
     border-top: 1px solid #e4e4e6;
     padding: 20px 200px;
-    max-width: 1920px;
-    margin: 0 auto;
+    width: 100%;
 }
 
 .footer-content {
@@ -844,12 +847,9 @@ body {
     gap: 40px;
 }
 
-.footer-logo-icon {
-    width: 55px;
-    height: 50px;
-    background: linear-gradient(135deg, #0064dd, #088ec5);
-    border-radius: 8px;
-    opacity: 0.4;
+.footer-logo .logo-icon {
+    filter: grayscale(100%);
+    opacity: 0.6;
 }
 
 .footer-info {
