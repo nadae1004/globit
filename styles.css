@@ -235,17 +235,18 @@ body {
     position: absolute;
     bottom: 100%;
     left: 50%;
-    transform: translate(-50%, -12px);
-    width: 160px;
-    height: 119px;
+    transform: translate(-50%, -16px);
+    width: 180px;
+    height: 130px;
     z-index: 2;
 }
 
 .popup-content {
     background-color: #ffffff;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    padding: 0px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.08);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -257,58 +258,57 @@ body {
 .popup-content::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 8px solid #ffffff;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #ffffff;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.12));
 }
 
 .popup-header h3 {
-    font-size: 20px;
-    font-weight: 700;
-    color: #18181a;
-    margin-bottom: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 10px 0;
     text-align: center;
+    line-height: 1.3;
 }
 
 .station-code {
-    background-color: #d8eaff;
-    color: #088ec5;
-    padding: 4px 12px;
-    border-radius: 50px;
-    font-size: 12px;
+    background-color: #e8f4fd;
+    color: #088EC5;
+    padding: 0 14px;
+    border-radius: 20px;
+    font-size: 11px;
     font-weight: 500;
     text-align: center;
     display: inline-block;
     width: auto;
-    height: 20px;
-    line-height: 20px;
+    height: 24px;
+    line-height: 24px;
+    letter-spacing: 0.5px;
 }
 
 .popup-status {
-    background-color: #f2f4f8;
-    border: 1px solid #e4e4e6;
-    border-radius: 8px;
-    height: 35px;
-    padding: 0 12px;
+    border-top: 1px solid #e9ecef;
+    height: 40px;
+    padding: 0 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin-bottom: 4px;
 }
 
 .popup-status span {
-    background: linear-gradient(135deg, #0064dd, #088ec5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #0064DD;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: 0.3px;
 }
 
 /* Info Panel */
@@ -529,7 +529,7 @@ body {
 
 .data-item {
     background-color: #ffffff;
-    border-radius: 8px;
+    border-radius: 20px;
     overflow: hidden;
 }
 
@@ -638,7 +638,7 @@ body {
 
 .tab {
     padding: 10px 30px;
-    border-radius: 8px 8px 0 0;
+    border-radius: 20px 20px 0 0;
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
