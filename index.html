@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>실시간 수산환경 관측시스템 - t839b7v3</title>
+    <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -46,32 +44,64 @@
                     <div class="map-image"></div>
                     <div class="map-overlay">
                         <!-- Observation Points -->
-                        <div class="observation-point" style="left: 200px; top: 300px;"></div>
-                        <div class="observation-point" style="left: 400px; top: 200px;"></div>
-                        <div class="observation-point" style="left: 450px; top: 400px;"></div>
-                        <div class="observation-point" style="left: 350px; top: 450px;"></div>
-                        <div class="observation-point" style="left: 250px; top: 500px;"></div>
-                        <div class="observation-point" style="left: 550px; top: 500px;"></div>
-                        <div class="observation-point" style="left: 400px; top: 600px;"></div>
-                        <div class="observation-point" style="left: 300px; top: 600px;"></div>
-                        <div class="observation-point" style="left: 450px; top: 700px;"></div>
-                        <div class="observation-point" style="left: 200px; top: 500px;"></div>
-                        <div class="observation-point" style="left: 100px; top: 400px;"></div>
-                        <div class="observation-point" style="left: 350px; top: 300px;"></div>
-                        <div class="observation-point" style="left: 500px; top: 250px;"></div>
-                        <div class="observation-point" style="left: 550px; top: 300px;"></div>
-                        <div class="observation-point" style="left: 500px; top: 320px;"></div>
-                        <div class="observation-point" style="left: 450px; top: 350px;"></div>
-                        <div class="observation-point" style="left: 250px; top: 350px;"></div>
-                        <div class="observation-point" style="left: 300px; top: 450px;"></div>
-                        <div class="observation-point" style="left: 550px; top: 600px;"></div>
-                        <div class="observation-point active" style="left: 200px; top: 600px;">
-                            <!-- Popup anchored to active icon -->
+                        <div class="observation-point" data-x="100" data-y="350">
                             <div class="map-popup">
                                 <div class="popup-content">
                                     <div class="popup-header">
-                                        <h3>육지 연화</h3>
-                                        <div class="station-code">C530056</div>
+                                        <h3>관측점 A</h3>
+                                        <div class="station-code">C530001</div>
+                                    </div>
+                                    <div class="popup-status">
+                                        <span>운영중</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="observation-point" data-x="300" data-y="450">
+                            <div class="map-popup">
+                                <div class="popup-content">
+                                    <div class="popup-header">
+                                        <h3>관측점 B</h3>
+                                        <div class="station-code">C530002</div>
+                                    </div>
+                                    <div class="popup-status">
+                                        <span>운영중</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="observation-point" data-x="500" data-y="550">
+                            <div class="map-popup">
+                                <div class="popup-content">
+                                    <div class="popup-header">
+                                        <h3>관측점 C</h3>
+                                        <div class="station-code">C530003</div>
+                                    </div>
+                                    <div class="popup-status">
+                                        <span>운영중</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="observation-point" data-x="150" data-y="600">
+                            <div class="map-popup">
+                                <div class="popup-content">
+                                    <div class="popup-header">
+                                        <h3>관측점 D</h3>
+                                        <div class="station-code">C530004</div>
+                                    </div>
+                                    <div class="popup-status">
+                                        <span>운영중</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="observation-point" data-x="450" data-y="700">
+                            <div class="map-popup">
+                                <div class="popup-content">
+                                    <div class="popup-header">
+                                        <h3>관측점 E</h3>
+                                        <div class="station-code">C530005</div>
                                     </div>
                                     <div class="popup-status">
                                         <span>운영중</span>
@@ -211,7 +241,7 @@
 
                             <div class="chart-container">
                                 <div class="chart-area">
-                                    <img src="images/graph_ex.png" alt="단기예측 그래프" class="chart-image">
+                                    chart-area
                                 </div>
                             </div>
                         </div>
@@ -234,7 +264,7 @@
 
                             <div class="chart-container">
                               <div class="chart-area">
-                                  <img src="images/graph_ex.png" alt="단기예측 그래프" class="chart-image">
+                                    chart-area
                               </div>
                           </div>
                             
@@ -259,7 +289,7 @@
 
                             <div class="chart-container">
                               <div class="chart-area">
-                                  <img src="images/graph_ex.png" alt="단기예측 그래프" class="chart-image">
+                                    chart-area
                               </div>
                           </div>
                         </div>
@@ -286,8 +316,16 @@
     </footer>
 
     <script>
-        // 탭 메뉴 기능 구현
+        // 관측점 위치 설정
         document.addEventListener('DOMContentLoaded', function() {
+            // 관측점 위치 설정
+            const observationPoints = document.querySelectorAll('.observation-point[data-x][data-y]');
+            observationPoints.forEach(point => {
+                const x = point.getAttribute('data-x');
+                const y = point.getAttribute('data-y');
+                point.style.setProperty('--x', x + 'px');
+                point.style.setProperty('--y', y + 'px');
+            });
             const tabs = document.querySelectorAll('.tab');
             const tabContents = document.querySelectorAll('.tab-content');
 
