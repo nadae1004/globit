@@ -13,12 +13,18 @@ body {
 
 /* Header Styles */
 .header {
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 25px 120px;
     height: 100px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 .logo {
@@ -30,7 +36,7 @@ body {
 .logo-icon {
     width: 54px;
     height: 50px;
-    background-image: url('images/logo2022.svg');
+    background-image: url('/images/logo2022.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -133,11 +139,18 @@ body {
 
 /* Main Section */
 .main-section {
+    width: 100%;
+    min-height: calc(100vh - 200px);
+}
+
+.main-wrapper {
     display: flex;
     gap: 40px;
     padding: 40px 120px;
     min-height: calc(100vh - 200px);
     align-items: stretch;
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 /* Map Container */
@@ -161,7 +174,7 @@ body {
 .map-image {
     width: 100%;
     height: 100%;
-    background-image: url('images/map_sample.png');
+    background-image: url('/images/map_sample.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -210,7 +223,7 @@ body {
     transform: translate(-50%, -50%);
     width: 50px;
     height: 51px;
-    background-image: url('images/map_ic_default.svg');
+    background-image: url('/images/map_ic_default.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -218,7 +231,7 @@ body {
 }
 
 .observation-point:hover::before {
-    background-image: url('images/map_ic_hover.svg');
+    background-image: url('/images/map_ic_hover.svg');
     width: 56px;
     height: 57px;
     transition: all 0.3s ease;
@@ -370,7 +383,7 @@ body {
 .map-icon {
     width: 24px;
     height: 24px;
-    background-image: url('images/map_select.svg');
+    background-image: url('/images/map_select.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -385,7 +398,7 @@ body {
 .dropdown-arrow {
     width: 24px;
     height: 24px;
-    background-image: url('images/select_arrow_down.svg');
+    background-image: url('/images/select_arrow_down.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -443,7 +456,7 @@ body {
 .dropdown-item .map-icon {
     width: 20px;
     height: 20px;
-    background-image: url('images/map_select.svg');
+    background-image: url('/images/map_select.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -496,7 +509,7 @@ body {
 .sun-icon {
     width: 166px;
     height: 157px;
-    background-image: url('images/sun.svg');
+    background-image: url('/images/Sun.svg');
     background-size: calc(100% + 60px);
     background-repeat: no-repeat;
     background-position: center;
@@ -830,8 +843,13 @@ body {
 /* Footer */
 .footer {
     border-top: 1px solid #e4e4e6;
-    padding: 20px 120px;
     width: 100%;
+}
+
+.footer-wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 20px 120px;
 }
 
 .footer-content {
@@ -881,15 +899,15 @@ body {
 
 /* Responsive Design */
 @media (min-width: 1920px) {
-    .header {
+    .header-content {
         padding: 25px 160px;
     }
     
-    .main-section {
+    .main-wrapper {
         padding: 40px 160px;
     }
     
-    .footer {
+    .footer-wrapper {
         padding: 20px 160px;
     }
 }
@@ -908,17 +926,17 @@ body {
 }
 
 @media (max-width: 1200px) {
-    .header {
+    .header-content {
         padding: 25px 80px;
         position: relative;
     }
     
-    .main-section {
+    .main-wrapper {
         flex-direction: column;
         padding: 40px 80px;
     }
     
-    .footer {
+    .footer-wrapper {
         padding: 20px 80px;
     }
     
@@ -945,6 +963,8 @@ body {
         visibility: hidden;
         transition: all 0.3s ease;
         z-index: 1000;
+        max-width: 1920px;
+        margin: 0 auto;
     }
     
     .gnb.active {
@@ -970,15 +990,15 @@ body {
 }
 
 @media (max-width: 1000px) {
-    .header {
+    .header-content {
         padding: 20px 60px;
     }
     
-    .main-section {
+    .main-wrapper {
         padding: 30px 60px;
     }
     
-    .footer {
+    .footer-wrapper {
         padding: 20px 60px;
     }
     
@@ -1057,29 +1077,29 @@ body {
 }
 
 @media (max-width: 800px) {
-    .header {
+    .header-content {
         padding: 20px 40px;
     }
     
-    .main-section {
+    .main-wrapper {
         padding: 25px 40px;
     }
     
-    .footer {
+    .footer-wrapper {
         padding: 15px 40px;
     }
 }
 
 @media (max-width: 480px) {
-    .header {
+    .header-content {
         padding: 15px 30px;
     }
     
-    .main-section {
+    .main-wrapper {
         padding: 20px 30px;
     }
     
-    .footer {
+    .footer-wrapper {
         padding: 15px 30px;
     }
     
@@ -1091,7 +1111,7 @@ body {
         font-size: 16px;
     }
     
-    .main-section {
+    .main-wrapper {
         padding: 15px 20px;
     }
     
@@ -1174,7 +1194,7 @@ body {
         max-height: 250px;
     }
     
-    .footer {
+    .footer-wrapper {
         padding: 15px 20px;
     }
     
