@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실시간 수산환경 관측시스템 - t839b7v3</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <h1>실시간 수산환경 관측시스템</h1>
+                </div>
+                <nav class="gnb">
+                    <div class="nav-item active">
+                        <span>HOME</span>
+                        <div class="nav-line"></div>
+                    </div>
+                    <div class="nav-item">
+                        <span>고수온기록</span>
+                        <div class="nav-line"></div>
+                    </div>
+                    <div class="nav-item">
+                        <span>알림서비스</span>
+                        <div class="nav-line"></div>
+                    </div>
+                </nav>
+                <button class="hamburger-btn" id="hamburgerBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
+
+            <!-- Main Section -->
+            <main class="main-section">
+                <div class="main-wrapper">
+                    <!-- Map Area -->
+                    <div class="map-container">
+                <div class="map-frame">
+                    <div class="map-image"></div>
+                    <div class="map-overlay">
+                        <!-- Observation Points -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Panel -->
+            <div class="info-panel">
+                <!-- Station Selection -->
+                <div class="station-selection">
+                    <h2>정점 선택</h2>
+                    <div class="station-dropdown" id="stationDropdown">
+                        <div class="dropdown-content">
+                            <div class="map-icon"></div>
+                            <span id="selectedStation">욕지 연화</span>
+                        </div>
+                        <div class="dropdown-arrow"></div>
+                    </div>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <div class="dropdown-item" data-station="욕지 연화">
+                            <div class="map-icon"></div>
+                            <span>욕지 연화</span>
+                        </div>
+                        <div class="dropdown-item" data-station="육지 연화">
+                            <div class="map-icon"></div>
+                            <span>육지 연화</span>
+                        </div>
+                        <div class="dropdown-item" data-station="거제 연화">
+                            <div class="map-icon"></div>
+                            <span>거제 연화</span>
+                        </div>
+                        <div class="dropdown-item" data-station="통영 연화">
+                            <div class="map-icon"></div>
+                            <span>통영 연화</span>
+                        </div>
+                        <div class="dropdown-item" data-station="고성 연화">
+                            <div class="map-icon"></div>
+                            <span>고성 연화</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weather Info -->
+                <div class="weather-info">
+                    <div class="section-header">
+                        <h2>최신 기상 및 수온 정보</h2>
+                        <span class="update-time">09.03(수) 09:00 기준</span>
+                    </div>
+                    
+                    <div class="weather-main">
+                        <div class="temperature-display">
+                            <div class="temp-row">
+                                <div class="sun-icon"></div>
+                                <div class="temp-value">31.2°C</div>
+                            </div>
+                            <div class="weather-alert">폭염 특보 발효중</div>
+                        </div>
+                    </div>
+
+                    <div class="data-grid">
+                        <div class="data-item water-temp">
+                            <div class="data-label">수온</div>
+                            <div class="data-value">
+                                <span class="value">31.2</span>
+                                <span class="unit">(°C)</span>
+                            </div>
+                        </div>
+                        <div class="data-item do">
+                            <div class="data-label">DO</div>
+                            <div class="data-value">
+                                <span class="value">7.60</span>
+                                <span class="unit">(ppm)</span>
+                            </div>
+                        </div>
+                        <div class="data-item wind">
+                            <div class="data-label">풍량/풍속</div>
+                            <div class="data-value">
+                                <span class="value">북동 1.9</span>
+                                <span class="unit">(m/s)</span>
+                            </div>
+                        </div>
+                        <div class="data-item rainfall">
+                            <div class="data-label">강수량</div>
+                            <div class="data-value">
+                                <span class="value">-</span>
+                                <span class="unit">(mm)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="coordinates">
+                        <div class="coord-item">
+                            <div class="coord-label">위도</div>
+                            <span class="coord-value">34.6412°N</span>
+                        </div>
+                        <div class="coord-divider"></div>
+                        <div class="coord-item">
+                            <div class="coord-label">경도</div>
+                            <span class="coord-value">128.3722°E</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Temperature Prediction -->
+                <div class="temperature-prediction">
+                    <div class="section-header">
+                        <h2>수온 예측</h2>
+                        <span class="update-time">09.03(수) 09:00 기준</span>
+                    </div>
+                    
+                    <div class="prediction-tabs">
+                        <div class="tab active" data-tab="short">단기예측</div>
+                        <div class="tab" data-tab="medium">중기예측</div>
+                        <div class="tab" data-tab="long">장기예측</div>
+                    </div>
+
+                    <div class="prediction-content">
+                        <!-- 단기예측 탭 -->
+                        <div class="tab-content active" id="short-tab">
+                            <div class="chart-header">
+                                <div class="legend">
+                                    <div class="legend-item">
+                                        <div class="legend-dot actual"></div>
+                                        <span>실측</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-dot predicted"></div>
+                                        <span>예측</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="chart-container">
+                                <div class="chart-area">
+                                    chart-area
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 중기예측 탭 -->
+                        <div class="tab-content" id="medium-tab">
+                            <div class="chart-header">
+                               
+                                <div class="legend">
+                                    <div class="legend-item">
+                                        <div class="legend-dot actual"></div>
+                                        <span>실측</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-dot predicted"></div>
+                                        <span>예측</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="chart-container">
+                              <div class="chart-area">
+                                    chart-area
+                              </div>
+                          </div>
+                            
+
+                            
+                        </div>
+
+                        <!-- 장기예측 탭 -->
+                        <div class="tab-content" id="long-tab">
+                            <div class="chart-header">
+                                <div class="legend">
+                                    <div class="legend-item">
+                                        <div class="legend-dot actual"></div>
+                                        <span>실측</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-dot predicted"></div>
+                                        <span>예측</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="chart-container">
+                              <div class="chart-area">
+                                    chart-area
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-wrapper">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon"></div>
+                </div>
+                <div class="footer-info">
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">개인정보처리방침</a>
+                        <a href="#" class="footer-link">저작권보호정책</a>
+                    </div>
+                    <p class="copyright">Copyright (C) 2025 Tongyeong City. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 관측점 위치 설정
+        document.addEventListener('DOMContentLoaded', function() {
+            // 관측점 위치 설정
+            const observationPoints = document.querySelectorAll('.observation-point[data-x][data-y]');
+            observationPoints.forEach(point => {
+                const x = point.getAttribute('data-x');
+                const y = point.getAttribute('data-y');
+                point.style.setProperty('--x', x + 'px');
+                point.style.setProperty('--y', y + 'px');
+            });
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // 모든 탭에서 active 클래스 제거
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // 클릭된 탭에 active 클래스 추가
+                    this.classList.add('active');
+                    
+                    // 해당 탭 콘텐츠 표시
+                    const targetContent = document.getElementById(targetTab + '-tab');
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                });
+            });
+
+            // 햄버거 메뉴 기능 구현
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const gnb = document.querySelector('.gnb');
+
+            hamburgerBtn.addEventListener('click', function() {
+                gnb.classList.toggle('active');
+                hamburgerBtn.classList.toggle('active');
+            });
+
+            // 메뉴 아이템 클릭 시 모바일 메뉴 닫기
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (window.innerWidth <= 800) {
+                        gnb.classList.remove('active');
+                        hamburgerBtn.classList.remove('active');
+                    }
+                });
+            });
+
+            // 드롭다운 메뉴 기능 구현
+            const stationDropdown = document.getElementById('stationDropdown');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+            const selectedStation = document.getElementById('selectedStation');
+            const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+            stationDropdown.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('active');
+                stationDropdown.classList.toggle('active');
+            });
+
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const stationName = this.getAttribute('data-station');
+                    selectedStation.textContent = stationName;
+                    dropdownMenu.classList.remove('active');
+                    stationDropdown.classList.remove('active');
+                });
+            });
+
+            // 외부 클릭 시 드롭다운 닫기
+            document.addEventListener('click', function() {
+                dropdownMenu.classList.remove('active');
+                stationDropdown.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
