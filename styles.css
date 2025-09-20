@@ -199,7 +199,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 5;
+    z-index: 100;
 }
 
 .observation-point {
@@ -207,7 +207,7 @@ body {
     width: 50px;
     height: 50px;
     transform: translate(-50%, -50%) scale(var(--map-scale));
-    z-index: 100;
+    z-index: 1000;
 }
 
 .observation-point[data-x][data-y] {
@@ -215,45 +215,35 @@ body {
     top: calc(var(--y, 0) * var(--map-scale));
 }
 
-.observation-point::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50px;
-    height: 51px;
-    background-image: url('/images/map_ic_default.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: all 0.3s ease;
-}
-
-.observation-point:hover::before {
-    background-image: url('/images/map_ic_hover.svg');
-    width: 56px;
-    height: 57px;
-    transition: all 0.3s ease;
-}
 
 
 .map-popup {
     position: absolute;
     bottom: 100%;
     left: 50%;
-    transform: translate(-50%, -16px);
+    transform: translate(-50%, -20px);
     width: 180px;
     height: 130px;
-    z-index: 1002;
+    z-index: 9999;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.observation-point:hover {
+    z-index: 99998;
 }
 
 .observation-point:hover .map-popup {
     opacity: 1;
     visibility: visible;
+    transform: translate(-50%, -20px) scale(1.02);
+    z-index: 99999;
+}
+
+.observation-point:hover .popup-content {
+    z-index: 100000;
 }
 
 .popup-content {
@@ -268,6 +258,7 @@ body {
     justify-content: space-between;
     text-align: center;
     position: relative;
+    z-index: 10000;
 }
 
 .popup-content::after {
@@ -1213,4 +1204,45 @@ body {
     .copyright {
         font-size: 13px;
     }
+}
+
+/* Temperature Circles for Map Icons */
+.temp-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    user-select: none;
+}
+
+.temp-low {
+    background: #776BF8;
+}
+
+.temp-high {
+    background: #776BF8;
+}
+
+.temp-circle:hover {
+    transform: translate(-50%, -50%) scale(1.15);
+    background: linear-gradient(90deg, #0064dd 0%, #088ec5 100%);
+    transition: all 0.3s ease;
+    z-index: 99999;
+}
+
+.temp-icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* Make icon white */
 }

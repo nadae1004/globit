@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>실시간 수산환경 관측시스템 - t839b7v3</title>
-    <link rel="stylesheet" href="global.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/map-styles.css">
 </head>
 <body>
     <div class="container">
@@ -46,7 +47,113 @@
                 <div class="map-frame">
                     <div class="map-image"></div>
                     <div class="map-overlay">
-                        <!-- Observation Points -->
+                        <!-- Observation Points - 10개 (16°C 7개, 27°C 3개) -->
+                        <!-- 16°C 관측점들 (7개) -->
+                        <div class="observation-point" data-x="94" data-y="120">
+                            <div class="temp-circle temp-low">16°C</div>
+                        </div>
+                        <div class="observation-point" data-x="376" data-y="343">
+                            <div class="temp-circle temp-low">16°C</div>
+                        </div>
+                        <div class="observation-point" data-x="415" data-y="630">
+                            <div class="temp-circle temp-low">16°C</div>
+                        </div>
+                        <div class="observation-point" data-x="213" data-y="827">
+                            <div class="temp-circle temp-low">16°C</div>
+                        </div>
+                        <div class="observation-point" data-x="326" data-y="932">
+                            <div class="temp-circle temp-low">16°C</div>
+                        </div>
+                        <div class="observation-point" data-x="275" data-y="393">
+                            <div class="temp-circle temp-low">16°C</div>
+                        </div>
+                        <div class="observation-point" data-x="209" data-y="545">
+                            <div class="temp-circle temp-low">16°C</div>
+                        </div>
+                        
+                        <!-- 27°C 관측점들 (3개) -->
+                        <div class="observation-point" data-x="11" data-y="612">
+                            <div class="temp-circle temp-high">27°C</div>
+                        </div>
+                        <div class="observation-point" data-x="395" data-y="808">
+                            <div class="temp-circle temp-high">27°C</div>
+                        </div>
+                        <div class="observation-point" data-x="475" data-y="612">
+                            <div class="temp-circle temp-high">27°C</div>
+                        </div>
+                        
+                        <!-- Station Popup -->
+                        <div class="station-popup" id="stationPopup">
+                            <div class="popup-header">
+                                <div class="station-name">육지 연화</div>
+                                <div class="station-code">C530056</div>
+                            </div>
+                            <div class="popup-footer">
+                                <div class="status">운영중</div>
+                                <button class="more-btn" id="moreBtn">더보기</button>
+                            </div>
+                            <button class="close-btn" id="closePopup">×</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail Popup Modal -->
+            <div class="detail-popup-overlay" id="detailPopupOverlay">
+                <div class="detail-popup" id="detailPopup">
+                    <!-- Header -->
+                    <div class="detail-header">
+                        <h2 class="detail-title">이 위치의 예보</h2>
+                        <button class="detail-close-btn" id="detailCloseBtn">×</button>
+                    </div>
+                    
+                    <!-- Main Content -->
+                    <div class="detail-content">
+                        <!-- Short-term Forecast Section -->
+                        <div class="forecast-section">
+                            <div class="forecast-header">
+                                <div class="legend">
+                                    <div class="legend-item">
+                                        <div class="legend-dot real-data"></div>
+                                        <span>실측</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-dot prediction"></div>
+                                        <span>예측</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="graph-area">
+                                <div class="graph-placeholder">graph-area</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Location Info Section -->
+                        <div class="location-info-section">
+                            <h3 class="location-title">위치 정보</h3>
+                            <div class="location-details">
+                                <div class="location-item">
+                                    <div class="coordinates">N34°39'3", E128°17'27"<br>Asia/Seoul(+09:00)</div>
+                                </div>
+                                <div class="location-item">
+                                    <div class="sun-info">일출: 6:06<br>일몰: 18:44</div>
+                                </div>
+                                <div class="location-item">
+                                    <div class="twilight-info">황혼: 19:10<br>해발고도: 0m (oft)</div>
+                                </div>
+                                <div class="location-item">
+                                    <div class="model-info">모델 고도: -4m (-14ft)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Notification Button -->
+                    <div class="notification-section">
+                        <button class="notification-btn">
+                            <span class="btn-icon">📝</span>
+                            이 위치로 알림 생성
+                        </button>
                     </div>
                 </div>
             </div>
@@ -257,6 +364,23 @@
     </footer>
 
     <script>
+        // 관측점 데이터 (10개: 16°C 7개, 27°C 3개)
+        const stationData = {
+            // 16°C 관측점들 (7개)
+            '94-120': { name: '욕지 연화', code: 'C530001', status: '운영중' },
+            '376-343': { name: '육지 연화', code: 'C530002', status: '운영중' },
+            '415-630': { name: '거제 연화', code: 'C530003', status: '운영중' },
+            '213-827': { name: '고성 연화', code: 'C530004', status: '운영중' },
+            '326-932': { name: '사천 연화', code: 'C530005', status: '운영중' },
+            '275-393': { name: '영덕 연화', code: 'C530006', status: '운영중' },
+            '209-545': { name: '양산 연화', code: 'C530007', status: '운영중' },
+            
+            // 27°C 관측점들 (3개)
+            '11-612': { name: '부산 연화', code: 'C530008', status: '운영중' },
+            '395-808': { name: '울산 연화', code: 'C530009', status: '운영중' },
+            '475-612': { name: '하동 연화', code: 'C530010', status: '운영중' }
+        };
+
         // 관측점 위치 설정
         document.addEventListener('DOMContentLoaded', function() {
             // 관측점 위치 설정
@@ -267,6 +391,7 @@
                 point.style.setProperty('--x', x + 'px');
                 point.style.setProperty('--y', y + 'px');
             });
+            
             const tabs = document.querySelectorAll('.tab');
             const tabContents = document.querySelectorAll('.tab-content');
 
@@ -336,6 +461,125 @@
                 dropdownMenu.classList.remove('active');
                 stationDropdown.classList.remove('active');
             });
+
+            // 관측점 클릭 이벤트
+            const stationPopup = document.getElementById('stationPopup');
+            const closePopup = document.getElementById('closePopup');
+            const stationName = document.querySelector('.station-name');
+            const stationCode = document.querySelector('.station-code');
+            const status = document.querySelector('.status');
+
+            observationPoints.forEach(point => {
+                point.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    const x = this.getAttribute('data-x');
+                    const y = this.getAttribute('data-y');
+                    const key = x + '-' + y;
+                    const data = stationData[key];
+                    
+                    if (data) {
+                        stationName.textContent = data.name;
+                        stationCode.textContent = data.code;
+                        status.textContent = data.status;
+                        
+                        // 팝업 위치 설정
+                        const rect = this.getBoundingClientRect();
+                        const mapContainer = document.querySelector('.map-container');
+                        const mapRect = mapContainer.getBoundingClientRect();
+                        
+                        const xPos = rect.left - mapRect.left + rect.width / 2;
+                        const yPos = rect.top - mapRect.top + rect.height / 2;
+                        
+                        stationPopup.style.left = xPos + 'px';
+                        stationPopup.style.top = yPos + 'px';
+                        stationPopup.classList.add('active');
+                    }
+                });
+            });
+
+            // 팝업 닫기
+            closePopup.addEventListener('click', function(e) {
+                e.stopPropagation();
+                stationPopup.classList.remove('active');
+            });
+
+            // 외부 클릭 시 팝업 닫기
+            document.addEventListener('click', function() {
+                stationPopup.classList.remove('active');
+            });
+
+            // 더보기 버튼 클릭 시 상세 팝업 열기
+            const moreBtn = document.querySelector('.more-btn');
+            const detailPopupOverlay = document.getElementById('detailPopupOverlay');
+            const detailCloseBtn = document.getElementById('detailCloseBtn');
+            const notificationBtn = document.querySelector('.notification-btn');
+
+            moreBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                detailPopupOverlay.classList.add('active');
+                // 기존 팝업 닫기
+                stationPopup.classList.remove('active');
+            });
+
+            // 상세 팝업 닫기
+            detailCloseBtn.addEventListener('click', function() {
+                detailPopupOverlay.classList.remove('active');
+            });
+
+            // 오버레이 클릭 시 상세 팝업 닫기
+            detailPopupOverlay.addEventListener('click', function(e) {
+                if (e.target === detailPopupOverlay) {
+                    detailPopupOverlay.classList.remove('active');
+                }
+            });
+
+            // 알림 생성 버튼 클릭
+            notificationBtn.addEventListener('click', function() {
+                alert('알림 생성 기능이 구현되었습니다!');
+            });
+
+            // ESC 키로 상세 팝업 닫기
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && detailPopupOverlay.classList.contains('active')) {
+                    detailPopupOverlay.classList.remove('active');
+                }
+            });
+
+            // 관측점 호버 효과
+            observationPoints.forEach(point => {
+                point.addEventListener('mouseenter', function() {
+                    this.style.zIndex = '1100';
+                });
+                
+                point.addEventListener('mouseleave', function() {
+                    this.style.zIndex = '1000';
+                });
+            });
+
+            // 로딩 완료 애니메이션
+            setTimeout(() => {
+                observationPoints.forEach((point, index) => {
+                    setTimeout(() => {
+                        point.style.opacity = '0';
+                        point.style.transform = 'translate(-50%, -50%) scale(0.5)';
+                        point.style.transition = 'all 0.5s ease';
+                        
+                        setTimeout(() => {
+                            point.style.opacity = '1';
+                            point.style.transform = 'translate(-50%, -50%) scale(1)';
+                        }, 50);
+                    }, index * 100);
+                });
+            }, 500);
+        });
+
+        // 키보드 접근성
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const stationPopup = document.getElementById('stationPopup');
+                stationPopup.classList.remove('active');
+            }
         });
     </script>
 </body>
