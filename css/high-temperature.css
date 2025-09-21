@@ -1,0 +1,722 @@
+/* High Temperature Records Page Styles - Figma Design */
+
+/* Main Wrapper - Vertical Layout */
+.main-wrapper {
+    flex-direction: column;
+}
+
+/* Calendar and Station List Section */
+.calendar-station-section {
+    display: flex;
+    gap: 40px;
+}
+
+/* Calendar Container */
+.calendar-container {
+    background-color: #f2f4f8;
+    border-radius: 20px;
+    padding: 30px;
+    flex: 1;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.nav-btn {
+    width: 44px;
+    height: 44px;
+    background-color: #ffffff;
+    border: 1px solid #c8c9cf;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    color: #18181a;
+}
+
+.nav-btn:hover {
+    background-color: #f8f9ff;
+    border-color: #0064dd;
+}
+
+.nav-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.month-year {
+    background-color: #d8eaff;
+    border-radius: 50px;
+    width: 60%;
+    text-align: center ;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #18181a;
+    margin: 0 20px;
+}
+
+.calendar-body {
+    width: 100%;
+}
+
+.weekdays {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.weekday {
+    flex: 1;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 14px;
+    font-weight: 400;
+    color: #9191a1;
+    border-radius: 20px;
+}
+
+.weekday.sunday {
+    color: #fb7c4e;
+    font-weight: 600;
+}
+
+.weekday.saturday {
+    color: #4599fe;
+    font-weight: 600;
+}
+
+.calendar-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.calendar-week {
+    display: flex;
+    gap: 5px;
+}
+
+.calendar-day {
+    flex: 1;
+    height: 65px;
+    background-color: #ffffff;
+    border: 1px solid #e4e4e6;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 14px;
+    font-weight: 400;
+    color: #474752;
+}
+
+.calendar-day.prev-month,
+.calendar-day.next-month {
+    background-color: #f1f1f3;
+    color: #adaeb9;
+}
+
+.calendar-day:hover:not(.prev-month):not(.next-month) {
+    background-color: #f8f9ff;
+    border-color: #0064dd;
+}
+
+/* Selected 상태 - 라인이 있는 상태 */
+.calendar-day.selected {
+    background-color: #ffffff;
+    border: 2px solid #fb7c4e;
+    color: #18181a;
+    font-weight: 600;
+}
+
+/* HighOn 상태 - 라인 없이 배경색만 있는 상태 */
+.calendar-day.highOn {
+    background-color: #fadbcd;
+    border: 1px solid #e4e4e6;
+    color: #18181a;
+}
+
+/* HighOn + Selected 조합 - 라인이 있는 상태 */
+.calendar-day.highOn.selected {
+    background-color: #fadbcd;
+    border: 2px solid #fb7c4e;
+    color: #18181a;
+    font-weight: 600;
+}
+
+.temp-indicator {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #f46d19;
+}
+
+/* Station List Container */
+.station-list-container {
+    background-color: #f2f4f8;
+    border-radius: 20px;
+    padding: 30px;
+    flex: 1;
+}
+
+.station-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.station-header h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #18181a;
+    margin: 0;
+}
+
+.select-all-btn {
+    background: linear-gradient(90deg, #0064dd 0%, #088ec5 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.3s ease;
+}
+
+.select-all-btn:hover {
+    opacity: 0.9;
+}
+
+.check-icon {
+    font-size: 20px;
+}
+
+.station-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.station-row {
+    display: flex;
+    gap: 10px;
+}
+
+.station-item {
+    flex: 1;
+    height: 56px;
+    background-color: #ffffff;
+    border: 1px solid #e4e4e6;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: 600;
+    color: #9191a1;
+    position: relative;
+}
+
+/* Selected 상태 - 라인이 있는 상태 */
+.station-item.selected {
+    background-color: #fadbcd;
+    border: 2px solid #fb7c4e;
+    color: #fb7c4e;
+    font-weight: 700;
+}
+
+/* HighOn 상태 - 라인 없이 배경색만 있는 상태 */
+.station-item.highOn {
+    background-color: #fadbcd;
+    border: 1px solid #e4e4e6;
+    color: #fb7c4e;
+}
+
+/* HighOn + Selected 조합 - 라인이 있는 상태 */
+.station-item.highOn.selected {
+    background-color: #fadbcd !important;
+    border: 2px solid #fb7c4e !important;
+    color: #fb7c4e !important;
+    font-weight: 700 !important;
+}
+
+.station-item.highlighted {
+    background-color: #d8eaff;
+    border-color: #088ec5;
+    color: #088ec5;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.station-item:hover:not(.highlighted) {
+    background-color: #f8f9ff;
+    border-color: #0064dd;
+    color: #0064dd;
+}
+
+/* Temperature Data Section */
+.temperature-data-section {
+    background-color: #f2f4f8;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+/* Temperature Table Section */
+.temperature-table-section {
+    background-color: #f2f4f8;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.table-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #18181a;
+    margin: 0;
+}
+
+.table-header .selected-date {
+    font-size: 16px;
+    color: #0064dd;
+    font-weight: 500;
+}
+
+.data-header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.data-header h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #18181a;
+    margin: 0 20px 0 0;
+}
+
+.date-selector {
+    background-color: #d8eaff;
+    border-radius: 50px;
+    padding: 10px 40px;
+}
+
+.selected-date {
+    font-size: 16px;
+    font-weight: 400;
+    color: #18181a;
+}
+
+/* Graph Section */
+.graph-section {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.graph-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.graph-title h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #18181a;
+    margin: 0;
+}
+
+.legend {
+    display: flex;
+    gap: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #5e5e6d;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.legend-dot.station-a {
+    background-color: #938af5;
+}
+
+.legend-dot.station-b {
+    background-color: #fb7c4e;
+}
+
+.legend-dot.station-c {
+    background-color: #23c197;
+}
+
+.chart-area {
+    background-color: #F2F4F8;
+    border-radius: 15px;
+    padding: 40px;
+    min-height: 322px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart-placeholder {
+    text-align: center;
+    color: #5e5e6d;
+}
+
+.chart-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background-color: #ffffff;
+}
+
+.chart-icon {
+    font-size: 48px;
+    opacity: 0.5;
+}
+
+.chart-info p {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.chart-info span {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Temperature Table */
+.temperature-table {
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #e4e4e6;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    background-color: #ffffff;
+}
+
+.data-table thead {
+    background-color: #f2f4f8;
+}
+
+.data-table th {
+    background-color: #f2f4f8;
+    color: #9191a1;
+    font-weight: 700;
+    padding: 20px 15px;
+    text-align: center;
+    border-bottom: 1px solid #e4e4e6;
+    font-size: 16px;
+    letter-spacing: 0.17px;
+    line-height: 22.88px;
+}
+
+.data-table td {
+    padding: 20px 15px;
+    text-align: center;
+    border-bottom: 1px solid #e4e4e6;
+    color: #18181a;
+    font-weight: 400;
+    letter-spacing: 0.17px;
+    line-height: 22.88px;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f8f9ff;
+}
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .calendar-station-section {
+        flex-direction: column;
+    }
+    
+    .calendar-container,
+    .station-list-container {
+        max-width: none;
+    }
+    
+    .legend {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .calendar-container,
+    .station-list-container,
+    .temperature-data-section,
+    .temperature-table-section {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .calendar-header {
+        gap: 5px;
+        margin-bottom: 20px;
+    }
+    
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+    
+    .nav-icon {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .month-year {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin: 0 10px;
+    }
+    
+    .calendar-day {
+        height: 55px;
+        padding: 8px;
+        font-size: 12px;
+    }
+    
+    .temp-indicator {
+        font-size: 20px;
+        bottom: 3px;
+        right: 8px;
+    }
+    
+    .station-header h3,
+    .data-header h3,
+    .table-header h3 {
+        font-size: 20px;
+    }
+    
+    .table-header .selected-date {
+        font-size: 14px;
+    }
+    
+    .select-all-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    
+    .station-item {
+        height: 50px;
+        font-size: 14px;
+    }
+    
+    .station-item.highlighted {
+        font-size: 18px;
+    }
+    
+    .graph-title h4 {
+        font-size: 18px;
+    }
+    
+    .legend {
+        gap: 10px;
+    }
+    
+    .legend-item {
+        font-size: 12px;
+    }
+    
+    .chart-area {
+        padding: 30px 20px;
+        min-height: 250px;
+    }
+    
+    .chart-icon {
+        font-size: 36px;
+    }
+    
+    .chart-info p {
+        font-size: 16px;
+    }
+    
+    .chart-info span {
+        font-size: 12px;
+    }
+    
+    .data-table {
+        font-size: 14px;
+    }
+    
+    .data-table th,
+    .data-table td {
+        padding: 16px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-container,
+    .station-list-container,
+    .temperature-data-section,
+    .temperature-table-section {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .calendar-header {
+        gap: 3px;
+        margin-bottom: 15px;
+    }
+    
+    .nav-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 12px;
+    }
+    
+    .nav-icon {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .month-year {
+        padding: 6px 12px;
+        font-size: 12px;
+        margin: 0 8px;
+    }
+    
+    .weekday {
+        font-size: 12px;
+        padding: 6px 0;
+    }
+    
+    .calendar-day {
+        height: 45px;
+        padding: 6px;
+        font-size: 11px;
+    }
+    
+    .temp-indicator {
+        font-size: 16px;
+        bottom: 2px;
+        right: 6px;
+    }
+    
+    .station-header h3,
+    .data-header h3,
+    .table-header h3 {
+        font-size: 18px;
+    }
+    
+    .table-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .table-header .selected-date {
+        font-size: 12px;
+    }
+    
+    .select-all-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .station-item {
+        height: 45px;
+        font-size: 12px;
+    }
+    
+    .station-item.highlighted {
+        font-size: 16px;
+    }
+    
+    .graph-title h4 {
+        font-size: 16px;
+    }
+    
+    .legend {
+        gap: 8px;
+    }
+    
+    .legend-item {
+        font-size: 11px;
+    }
+    
+    .chart-area {
+        padding: 20px 15px;
+        min-height: 200px;
+    }
+    
+    .chart-icon {
+        font-size: 28px;
+    }
+    
+    .chart-info p {
+        font-size: 14px;
+    }
+    
+    .chart-info span {
+        font-size: 11px;
+    }
+    
+    .data-table {
+        font-size: 12px;
+    }
+    
+    .data-table th,
+    .data-table td {
+        padding: 12px 8px;
+    }
+}

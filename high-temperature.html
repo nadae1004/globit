@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고수온기록 - 실시간 수산환경 관측시스템</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/high-temperature.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"></div>
+                    <h1>실시간 수산환경 관측시스템</h1>
+                </a>
+                <nav class="gnb">
+                    <div class="nav-item">
+                        <a href="index.html">
+                            <span>HOME</span>
+                            <div class="nav-line"></div>
+                        </a>
+                    </div>
+                    <div class="nav-item active">
+                        <a href="high-temperature.html">
+                            <span>고수온기록</span>
+                            <div class="nav-line"></div>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#">
+                            <span>알림서비스</span>
+                            <div class="nav-line"></div>
+                        </a>
+                    </div>
+                </nav>
+                <button class="hamburger-btn" id="hamburgerBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Section -->
+        <main class="main-section">
+            <div class="main-wrapper">
+                <!-- Calendar and Station List Section -->
+                <div class="calendar-station-section">
+                    <!-- Calendar -->
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <button class="nav-btn double-prev">
+                                <img src="/images/cal_double_arrow_left.svg" alt="이전 달" class="nav-icon">
+                            </button>
+                            <button class="nav-btn prev">
+                                <img src="/images/cal_arrow_left.svg" alt="이전 날" class="nav-icon">
+                            </button>
+                            <div class="month-year">2025년 8월</div>
+                            <button class="nav-btn next">
+                                <img src="/images/cal_arrow_right.svg" alt="다음 날" class="nav-icon">
+                            </button>
+                            <button class="nav-btn double-next">
+                                <img src="/images/cal_double_arrow_right.svg" alt="다음 달" class="nav-icon">
+                            </button>
+                        </div>
+                        
+                        <div class="calendar-body">
+                            <!-- Weekdays -->
+                            <div class="weekdays">
+                                <div class="weekday sunday">일요일</div>
+                                <div class="weekday">월요일</div>
+                                <div class="weekday">화요일</div>
+                                <div class="weekday">수요일</div>
+                                <div class="weekday">목요일</div>
+                                <div class="weekday">금요일</div>
+                                <div class="weekday saturday">토요일</div>
+                            </div>
+                            
+                            <!-- Calendar Grid -->
+                            <div class="calendar-grid">
+                                <!-- Week 1 -->
+                                <div class="calendar-week">
+                                    <div class="calendar-day prev-month">29</div>
+                                    <div class="calendar-day prev-month">30</div>
+                                    <div class="calendar-day prev-month">31</div>
+                                    <div class="calendar-day">1</div>
+                                    <div class="calendar-day">2</div>
+                                    <div class="calendar-day">3</div>
+                                    <div class="calendar-day">4</div>
+                                </div>
+                                
+                                <!-- Week 2 -->
+                                <div class="calendar-week">
+                                    <div class="calendar-day">5</div>
+                                    <div class="calendar-day">6</div>
+                                    <div class="calendar-day">7</div>
+                                    <div class="calendar-day">8</div>
+                                    <div class="calendar-day">9</div>
+                                    <div class="calendar-day">10</div>
+                                    <div class="calendar-day">11</div>
+                                </div>
+                                
+                                <!-- Week 3 -->
+                                <div class="calendar-week">
+                                    <div class="calendar-day">12</div>
+                                    <div class="calendar-day highOn">13<span class="temp-indicator">3</span></div>
+                                    <div class="calendar-day highOn">14<span class="temp-indicator">10</span></div>
+                                    <div class="calendar-day highOn selected">15<span class="temp-indicator">4</span></div>
+                                    <div class="calendar-day">16</div>
+                                    <div class="calendar-day">17</div>
+                                    <div class="calendar-day">18</div>
+                                </div>
+                                
+                                <!-- Week 4 -->
+                                <div class="calendar-week">
+                                    <div class="calendar-day">19</div>
+                                    <div class="calendar-day">20</div>
+                                    <div class="calendar-day">21</div>
+                                    <div class="calendar-day">22</div>
+                                    <div class="calendar-day">23</div>
+                                    <div class="calendar-day">24</div>
+                                    <div class="calendar-day">25</div>
+                                </div>
+                                
+                                <!-- Week 5 -->
+                                <div class="calendar-week">
+                                    <div class="calendar-day">26</div>
+                                    <div class="calendar-day">27</div>
+                                    <div class="calendar-day">28</div>
+                                    <div class="calendar-day">29</div>
+                                    <div class="calendar-day">30</div>
+                                    <div class="calendar-day">31</div>
+                                    <div class="calendar-day next-month">1</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Station List Section -->
+                    <div class="station-list-container">
+                        <div class="station-header">
+                            <h3>정점 리스트</h3>
+                            <button class="select-all-btn">
+                                <span class="check-icon">✓</span>
+                                전체정점 선택
+                            </button>
+                        </div>
+                        
+                        <div class="station-list">
+                            <div class="station-row">
+                                <div class="station-item selected highOn">정점명A</div>
+                                <div class="station-item selected highOn">정점명B</div>
+                                <div class="station-item selected highOn">정점명C</div>
+                                <div class="station-item highOn">정점명D</div>
+                                <div class="station-item">정점명E</div>
+                            </div>
+                            <div class="station-row">
+                                <div class="station-item">정점명F</div>
+                                <div class="station-item">정점명G</div>
+                                <div class="station-item">정점명H</div>
+                                <div class="station-item">정점명I</div>
+                                <div class="station-item">정점명J</div>
+                            </div>
+                            <div class="station-row">
+                                <div class="station-item">정점명K</div>
+                                <div class="station-item">정점명L</div>
+                                <div class="station-item">정점명M</div>
+                                <div class="station-item">정점명N</div>
+                                <div class="station-item">정점명O</div>
+                            </div>
+                            <div class="station-row">
+                                <div class="station-item">정점명P</div>
+                                <div class="station-item">정점명Q</div>
+                                <div class="station-item">정점명R</div>
+                                <div class="station-item">정점명S</div>
+                                <div class="station-item">정점명T</div>
+                            </div>
+                            <div class="station-row">
+                                <div class="station-item">정점명U</div>
+                                <div class="station-item">정점명W</div>
+                                <div class="station-item">정점명Y</div>
+                                <div class="station-item">정점명X</div>
+                                <div class="station-item">정점명Z</div>
+                            </div>
+                            <div class="station-row">
+                                <div class="station-item">정점명AA</div>
+                                <div class="station-item">정점명BB</div>
+                                <div class="station-item">정점명CC</div>
+                                <div class="station-item">정점명E</div>
+                                <div class="station-item">정점명EE</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Temperature Data Section -->
+                <div class="temperature-data-section">
+                    <div class="data-header">
+                        <h3>정점 수온 정보</h3>
+                        <div class="date-selector">
+                            <span class="selected-date">2025-08-15</span>
+                        </div>
+                    </div>
+                    
+                    <div class="graph-section">
+                        <div class="graph-title">
+                            <h4>고수온 그래프</h4>
+                            <div class="legend">
+                                <div class="legend-item">
+                                    <div class="legend-dot station-a"></div>
+                                    <span>정점명A</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-dot station-b"></div>
+                                    <span>정점명B</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-dot station-c"></div>
+                                    <span>정점명C</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-area">
+                                    <p>graph-area</p>
+                        </div>
+                    </div>
+                </div>
+              
+                <!-- Temperature Table Section -->
+                    <div class="temperature-table">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>정점명</th>
+                                    <th>00h</th>
+                                    <th>04h</th>
+                                    <th>08h</th>
+                                    <th>12h</th>
+                                    <th>16h</th>
+                                    <th>20h</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>정점명A</td>
+                                    <td>12.5</td>
+                                    <td>12.2</td>
+                                    <td>14.4</td>
+                                    <td>23.0</td>
+                                    <td>28.5</td>
+                                    <td>19.2</td>
+                                </tr>
+                                <tr>
+                                    <td>정점명B</td>
+                                    <td>13.1</td>
+                                    <td>13.4</td>
+                                    <td>16.7</td>
+                                    <td>24.7</td>
+                                    <td>28.5</td>
+                                    <td>18.7</td>
+                                </tr>
+                                <tr>
+                                    <td>정점명C</td>
+                                    <td>14.1</td>
+                                    <td>15.2</td>
+                                    <td>16.6</td>
+                                    <td>25.3</td>
+                                    <td>28.8</td>
+                                    <td>18.9</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-wrapper">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon"></div>
+                </div>
+                <div class="footer-info">
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">개인정보처리방침</a>
+                        <a href="#" class="footer-link">저작권보호정책</a>
+                    </div>
+                    <p class="copyright">Copyright (C) 2025 Tongyeong City. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 햄버거 메뉴 기능
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const gnb = document.querySelector('.gnb');
+
+            hamburgerBtn.addEventListener('click', function() {
+                gnb.classList.toggle('active');
+                hamburgerBtn.classList.toggle('active');
+            });
+
+            // 메뉴 아이템 클릭 시 모바일 메뉴 닫기
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    if (window.innerWidth <= 800) {
+                        gnb.classList.remove('active');
+                        hamburgerBtn.classList.remove('active');
+                    }
+                });
+            });
+
+            // 달력 네비게이션
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    console.log('달력 네비게이션:', this.textContent);
+                });
+            });
+
+            // 달력 날짜 클릭
+            const calendarDays = document.querySelectorAll('.calendar-day');
+            calendarDays.forEach(day => {
+                day.addEventListener('click', function() {
+                    calendarDays.forEach(d => d.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+
+            // 정점 선택/해제
+            const stationItems = document.querySelectorAll('.station-item');
+            stationItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.classList.toggle('selected');
+                });
+            });
+
+            // 전체 선택 버튼
+            const selectAllBtn = document.querySelector('.select-all-btn');
+            selectAllBtn.addEventListener('click', function() {
+                const isAllSelected = Array.from(stationItems).every(item => item.classList.contains('selected'));
+                stationItems.forEach(item => {
+                    if (isAllSelected) {
+                        // highOn 클래스가 있는 정점은 selected만 제거하고 highOn은 유지
+                        if (item.classList.contains('highOn')) {
+                            item.classList.remove('selected');
+                        } else {
+                            item.classList.remove('selected');
+                        }
+                    } else {
+                        item.classList.add('selected');
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
