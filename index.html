@@ -3,46 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>실시간 수산환경 관측시스템 - t839b7v3</title>
+    <title>HOME - 실시간 수산환경 관측시스템</title>
     <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/components.js"></script>
+    <script src="/js/main.js"></script>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon"></div>
-                    <h1>실시간 수산환경 관측시스템</h1>
-                </a>
-                <nav class="gnb">
-                    <div class="nav-item active">
-                        <a href="index.html">
-                            <span>HOME</span>
-                            <div class="nav-line"></div>
-                        </a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="high-temperature.html">
-                            <span>고수온기록</span>
-                            <div class="nav-line"></div>
-                        </a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="#">
-                            <span>알림서비스</span>
-                            <div class="nav-line"></div>
-                        </a>
-                    </div>
-                </nav>
-                <button class="hamburger-btn" id="hamburgerBtn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </header>
+        <!-- Header Placeholder -->
+        <div id="header-placeholder"></div>
 
         <!-- Main Section -->
         <main class="main-section">
@@ -404,105 +374,8 @@
         </main>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-wrapper">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="logo-icon"></div>
-                </div>
-                <div class="footer-info">
-                    <div class="footer-links">
-                        <a href="#" class="footer-link">개인정보처리방침</a>
-                        <a href="#" class="footer-link">저작권보호정책</a>
-                    </div>
-                    <p class="copyright">Copyright (C) 2025 Tongyeong City. All rights reserved.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
 
-    <script>
-        // 관측점 위치 설정
-        document.addEventListener('DOMContentLoaded', function() {
-            // 관측점 위치 설정
-            const observationPoints = document.querySelectorAll('.observation-point[data-x][data-y]');
-            observationPoints.forEach(point => {
-                const x = point.getAttribute('data-x');
-                const y = point.getAttribute('data-y');
-                point.style.setProperty('--x', x + 'px');
-                point.style.setProperty('--y', y + 'px');
-            });
-            const tabs = document.querySelectorAll('.tab');
-            const tabContents = document.querySelectorAll('.tab-content');
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    const targetTab = this.getAttribute('data-tab');
-                    
-                    // 모든 탭에서 active 클래스 제거
-                    tabs.forEach(t => t.classList.remove('active'));
-                    tabContents.forEach(content => content.classList.remove('active'));
-                    
-                    // 클릭된 탭에 active 클래스 추가
-                    this.classList.add('active');
-                    
-                    // 해당 탭 콘텐츠 표시
-                    const targetContent = document.getElementById(targetTab + '-tab');
-                    if (targetContent) {
-                        targetContent.classList.add('active');
-                    }
-                });
-            });
-
-            // 햄버거 메뉴 기능 구현
-            const hamburgerBtn = document.getElementById('hamburgerBtn');
-            const gnb = document.querySelector('.gnb');
-
-            hamburgerBtn.addEventListener('click', function() {
-                gnb.classList.toggle('active');
-                hamburgerBtn.classList.toggle('active');
-            });
-
-            // 메뉴 아이템 클릭 시 모바일 메뉴 닫기
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    if (window.innerWidth <= 800) {
-                        gnb.classList.remove('active');
-                        hamburgerBtn.classList.remove('active');
-                    }
-                });
-            });
-
-            // 드롭다운 메뉴 기능 구현
-            const stationDropdown = document.getElementById('stationDropdown');
-            const dropdownMenu = document.getElementById('dropdownMenu');
-            const selectedStation = document.getElementById('selectedStation');
-            const dropdownItems = document.querySelectorAll('.dropdown-item');
-
-            stationDropdown.addEventListener('click', function(e) {
-                e.stopPropagation();
-                dropdownMenu.classList.toggle('active');
-                stationDropdown.classList.toggle('active');
-            });
-
-            dropdownItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const stationName = this.getAttribute('data-station');
-                    selectedStation.textContent = stationName;
-                    dropdownMenu.classList.remove('active');
-                    stationDropdown.classList.remove('active');
-                });
-            });
-
-            // 외부 클릭 시 드롭다운 닫기
-            document.addEventListener('click', function() {
-                dropdownMenu.classList.remove('active');
-                stationDropdown.classList.remove('active');
-            });
-        });
-    </script>
 </body>
 </html>

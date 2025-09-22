@@ -7,43 +7,13 @@
     <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/high-temperature.css">
+    <script src="/js/components.js"></script>
+    <script src="/js/high-temperature.js"></script>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon"></div>
-                    <h1>실시간 수산환경 관측시스템</h1>
-                </a>
-                <nav class="gnb">
-                    <div class="nav-item">
-                        <a href="index.html">
-                            <span>HOME</span>
-                            <div class="nav-line"></div>
-                        </a>
-                    </div>
-                    <div class="nav-item active">
-                        <a href="high-temperature.html">
-                            <span>고수온기록</span>
-                            <div class="nav-line"></div>
-                        </a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="#">
-                            <span>알림서비스</span>
-                            <div class="nav-line"></div>
-                        </a>
-                    </div>
-                </nav>
-                <button class="hamburger-btn" id="hamburgerBtn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </header>
+        <!-- Header Placeholder -->
+        <div id="header-placeholder"></div>
 
         <!-- Main Section -->
         <main class="main-section">
@@ -280,90 +250,8 @@
         </main>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-wrapper">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="logo-icon"></div>
-                </div>
-                <div class="footer-info">
-                    <div class="footer-links">
-                        <a href="#" class="footer-link">개인정보처리방침</a>
-                        <a href="#" class="footer-link">저작권보호정책</a>
-                    </div>
-                    <p class="copyright">Copyright (C) 2025 Tongyeong City. All rights reserved.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 햄버거 메뉴 기능
-            const hamburgerBtn = document.getElementById('hamburgerBtn');
-            const gnb = document.querySelector('.gnb');
-
-            hamburgerBtn.addEventListener('click', function() {
-                gnb.classList.toggle('active');
-                hamburgerBtn.classList.toggle('active');
-            });
-
-            // 메뉴 아이템 클릭 시 모바일 메뉴 닫기
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    if (window.innerWidth <= 800) {
-                        gnb.classList.remove('active');
-                        hamburgerBtn.classList.remove('active');
-                    }
-                });
-            });
-
-            // 달력 네비게이션
-            const navBtns = document.querySelectorAll('.nav-btn');
-            navBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    console.log('달력 네비게이션:', this.textContent);
-                });
-            });
-
-            // 달력 날짜 클릭
-            const calendarDays = document.querySelectorAll('.calendar-day');
-            calendarDays.forEach(day => {
-                day.addEventListener('click', function() {
-                    calendarDays.forEach(d => d.classList.remove('selected'));
-                    this.classList.add('selected');
-                });
-            });
-
-            // 정점 선택/해제
-            const stationItems = document.querySelectorAll('.station-item');
-            stationItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    this.classList.toggle('selected');
-                });
-            });
-
-            // 전체 선택 버튼
-            const selectAllBtn = document.querySelector('.select-all-btn');
-            selectAllBtn.addEventListener('click', function() {
-                const isAllSelected = Array.from(stationItems).every(item => item.classList.contains('selected'));
-                stationItems.forEach(item => {
-                    if (isAllSelected) {
-                        // highOn 클래스가 있는 정점은 selected만 제거하고 highOn은 유지
-                        if (item.classList.contains('highOn')) {
-                            item.classList.remove('selected');
-                        } else {
-                            item.classList.remove('selected');
-                        }
-                    } else {
-                        item.classList.add('selected');
-                    }
-                });
-            });
-
-        });
-    </script>
 </body>
 </html>
