@@ -26,6 +26,7 @@ function setActiveNavigation() {
 function getCurrentPage() {
     const path = window.location.pathname;
     if (path.includes('high-temperature.html')) return 'high-temperature';
+    if (path.includes('notification-service.html')) return 'notification-service';
     return 'index'; // index.html과 index-map.html 모두 index로 처리
 }
 

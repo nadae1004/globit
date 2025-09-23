@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>알림서비스 - 실시간 수산환경 관측시스템</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/notification-service.css">
+    <script src="/js/components.js"></script>
+    <script src="/js/main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Placeholder -->
+        <div id="header-placeholder"></div>
+
+        <!-- Main Section -->
+        <main class="main-section notification-main">
+            <!-- Privacy Consent Section -->
+            <section class="privacy-section">
+                <h2 class="section-title">개인정보수집에 관한 동의</h2>
+                <div class="privacy-content">
+                    <div class="privacy-text">
+                        <p>◉ 개인정보의 수집•이용 목적<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;- 실시간 수온정보 서비스 제공 및 회원가입 용도로 활용됩니다.</p>
+                        
+                        <p>◉ 활용하는 개인정보의 항목<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;- 전화번호, ID<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;※ 서비스 이용과정에서 IP Address, 쿠키, 방문 일시, 서비스 이용 기록, 불량 이용 기록과 같은 정보들이 자동으로 생성되어 수집될 수 있습니다. 선택 항목은 향후 보다 나은 홈페이지 서비스를 제공하기 위한 통계자료로 활용합니다.</p>
+                        
+                        <p>◉ 보유 및 이용 기간 - 서비스 중지 요청 시까지</p>
+                        
+                        <p>◉ 동의를 거부할 권리가 있다는 사실 및 동의 거부에 따른 불이익의 내용<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;- 상기 개인 정보 수집에 동의하지 않을 시 실시간 수온 정보 서비스를 이용하실 수 없습니다.</p>
+                    </div>
+                </div>
+                
+                <div class="consent-options">
+                    <div class="consent-option">
+                        <input type="radio" id="consent-yes" name="privacy-consent" value="yes" checked>
+                        <label for="consent-yes">[필수] 개인정보 수집에 동의합니다.</label>
+                    </div>
+                    <div class="consent-option">
+                        <input type="radio" id="consent-no" name="privacy-consent" value="no">
+                        <label for="consent-no">동의하지 않습니다.</label>
+                    </div>
+                </div>
+                
+                <div class="consent-buttons">
+                    <button class="btn btn-primary">확인</button>
+                    <button class="btn btn-secondary">취소</button>
+                </div>
+            </section>
+
+            <!-- Service Application Section -->
+            <section class="service-section">
+                <h2 class="section-title">서비스 신청정보</h2>
+                
+                <div class="service-form">
+                    <!-- Left Column: Form and Table -->
+                    <div class="service-left-column">
+                        <!-- Personal Info -->
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="phone">휴대폰번호<span>*</span></label>
+                                    <input type="tel" id="phone" placeholder="010-2345-6789" disabled>
+                                </div>
+                                <div class="form-field">
+                                    <label for="notification-time">수신 시간 설정<span>*</span></label>
+                                    <div class="time-inputs">
+                                        <div class="time-group">
+                                            <select class="time-select">
+                                                <option value="00">00</option>
+                                                <option value="01">01</option>
+                                                <option value="02">02</option>
+                                                <option value="03">03</option>
+                                                <option value="04">04</option>
+                                                <option value="05">05</option>
+                                                <option value="06">06</option>
+                                                <option value="07">07</option>
+                                                <option value="08">08</option>
+                                                <option value="09">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                                <option value="19">19</option>
+                                                <option value="20">20</option>
+                                                <option value="21">21</option>
+                                                <option value="22">22</option>
+                                                <option value="23">23</option>
+                                            </select>
+                                            <span class="time-unit">시</span>
+                                            <select class="time-select">
+                                                <option value="00">00</option>
+                                                <option value="15">15</option>
+                                                <option value="30">30</option>
+                                                <option value="45">45</option>
+                                            </select>
+                                            <span class="time-unit">분</span>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>알림 유형<span>*</span></label>
+                                    <div class="checkbox-group">
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="notification-actual" checked>
+                                            <label for="notification-actual">실측 수온 알림</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="notification-predicted">
+                                            <label for="notification-predicted">예측 수온 알림</label>
+                                        </div>
+                                        <div class="checkbox-item">
+                                            <input type="checkbox" id="notification-high-temp" checked>
+                                            <label for="notification-high-temp">고수온 예측 알림</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Station Selection Table -->
+                        <div class="station-table-container">
+                        <div class="station-table">
+                            <div class="table-header">
+                                <div class="table-cell">지역</div>
+                                <div class="table-cell">관측코드</div>
+                                <div class="table-cell">위도</div>
+                                <div class="table-cell">경도</div>
+                                <div class="table-cell">상태</div>
+                                <div class="table-cell">선택</div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">산양 곤리</div>
+                                <div class="table-cell">CS30001</div>
+                                <div class="table-cell">34.8741</div>
+                                <div class="table-cell">128.3512</div>
+                                <div class="table-cell">-</div>
+                                <div class="table-cell">
+                                    <input type="checkbox" class="station-checkbox">
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">산양 곤리</div>
+                                <div class="table-cell">CS30001</div>
+                                <div class="table-cell">34.8741</div>
+                                <div class="table-cell">128.3512</div>
+                                <div class="table-cell">점검중</div>
+                                <div class="table-cell">
+                                    <input type="checkbox" class="station-checkbox" disabled>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">산양 곤리</div>
+                                <div class="table-cell">CS30001</div>
+                                <div class="table-cell">34.8741</div>
+                                <div class="table-cell">128.3512</div>
+                                <div class="table-cell">-</div>
+                                <div class="table-cell">
+                                    <input type="checkbox" class="station-checkbox" checked>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">산양 곤리</div>
+                                <div class="table-cell">CS30001</div>
+                                <div class="table-cell">34.8741</div>
+                                <div class="table-cell">128.3512</div>
+                                <div class="table-cell">-</div>
+                                <div class="table-cell">
+                                    <input type="checkbox" class="station-checkbox" checked>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">산양 곤리</div>
+                                <div class="table-cell">CS30001</div>
+                                <div class="table-cell">34.8741</div>
+                                <div class="table-cell">128.3512</div>
+                                <div class="table-cell">-</div>
+                                <div class="table-cell">
+                                    <input type="checkbox" class="station-checkbox" checked>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">산양 곤리</div>
+                                <div class="table-cell">CS30001</div>
+                                <div class="table-cell">34.8741</div>
+                                <div class="table-cell">128.3512</div>
+                                <div class="table-cell">-</div>
+                                <div class="table-cell">
+                                    <input type="checkbox" class="station-checkbox" checked>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">산양 곤리</div>
+                                <div class="table-cell">CS30001</div>
+                                <div class="table-cell">34.8741</div>
+                                <div class="table-cell">128.3512</div>
+                                <div class="table-cell">-</div>
+                                <div class="table-cell">
+                                    <input type="checkbox" class="station-checkbox">
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">산양 곤리</div>
+                                <div class="table-cell">CS30001</div>
+                                <div class="table-cell">34.8741</div>
+                                <div class="table-cell">128.3512</div>
+                                <div class="table-cell">-</div>
+                                <div class="table-cell">
+                                    <input type="checkbox" class="station-checkbox">
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">산양 곤리</div>
+                                <div class="table-cell">CS30001</div>
+                                <div class="table-cell">34.8741</div>
+                                <div class="table-cell">128.3512</div>
+                                <div class="table-cell">-</div>
+                                <div class="table-cell">
+                                    <input type="checkbox" class="station-checkbox">
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">산양 곤리</div>
+                                <div class="table-cell">CS30001</div>
+                                <div class="table-cell">34.8741</div>
+                                <div class="table-cell">128.3512</div>
+                                <div class="table-cell">-</div>
+                                <div class="table-cell">
+                                    <input type="checkbox" class="station-checkbox">
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">산양 곤리</div>
+                                <div class="table-cell">CS30001</div>
+                                <div class="table-cell">34.8741</div>
+                                <div class="table-cell">128.3512</div>
+                                <div class="table-cell">-</div>
+                                <div class="table-cell">
+                                    <input type="checkbox" class="station-checkbox">
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">울산 신정</div>
+                                <div class="table-cell">US20001</div>
+                                <div class="table-cell">35.1234</div>
+                                <div class="table-cell">129.2345</div>
+                                <div class="table-cell">운영중</div>
+                                <div class="table-cell">
+                                    <input type="checkbox" class="station-checkbox" checked>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">부산 해운대</div>
+                                <div class="table-cell">BS30002</div>
+                                <div class="table-cell">35.1567</div>
+                                <div class="table-cell">129.1789</div>
+                                <div class="table-cell">-</div>
+                                <div class="table-cell">
+                                    <input type="checkbox" class="station-checkbox">
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">경남 통영</div>
+                                <div class="table-cell">GN40001</div>
+                                <div class="table-cell">34.7890</div>
+                                <div class="table-cell">128.4567</div>
+                                <div class="table-cell">점검중</div>
+                                <div class="table-cell">
+                                    <input type="checkbox" class="station-checkbox" disabled>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">전남 여수</div>
+                                <div class="table-cell">JN50001</div>
+                                <div class="table-cell">34.6789</div>
+                                <div class="table-cell">127.7890</div>
+                                <div class="table-cell">운영중</div>
+                                <div class="table-cell">
+                                    <input type="checkbox" class="station-checkbox" checked>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">제주 서귀포</div>
+                                <div class="table-cell">JJ60001</div>
+                                <div class="table-cell">33.2345</div>
+                                <div class="table-cell">126.5678</div>
+                                <div class="table-cell">-</div>
+                                <div class="table-cell">
+                                    <input type="checkbox" class="station-checkbox">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="table-scrollbar"></div>
+                        
+                        <div class="table-footer">
+                            <p>정점은 <span>최대 N개</span>까지 선택할 수 있습니다.</p>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Map -->
+                    <div class="map-area">
+                        <div class="map-container">
+                            <div class="map-image">
+                                <img src="/images/map_sample.png" alt="지도" class="map-img">
+                            </div>
+                            
+                            <!-- Map Points -->
+                            <div class="map-points">
+                                <div class="map-point" data-table-index="0" style="left: 200px; top: 150px;">
+                                    <div class="temp-circle">
+                                        <img src="/images/map_ic_tem.svg" alt="Temperature" class="temp-icon">
+                                    </div>
+                                </div>
+                                <div class="map-point disabled" data-table-index="1" style="left: 300px; top: 250px;">
+                                    <div class="temp-circle disabled">
+                                        <img src="/images/map_ic_dis.svg" alt="Temperature" class="temp-icon">
+                                    </div>
+                                </div>
+                                <div class="map-point" data-table-index="2" style="left: 150px; top: 300px;">
+                                    <div class="temp-circle">
+                                        <img src="/images/map_ic_tem.svg" alt="Temperature" class="temp-icon">
+                                    </div>
+                                </div>
+                                <div class="map-point" data-table-index="3" style="left: 400px; top: 200px;">
+                                    <div class="temp-circle">
+                                        <img src="/images/map_ic_tem.svg" alt="Temperature" class="temp-icon">
+                                    </div>
+                                </div>
+                                <div class="map-point" data-table-index="4" style="left: 250px; top: 350px;">
+                                    <div class="temp-circle">
+                                        <img src="/images/map_ic_tem.svg" alt="Temperature" class="temp-icon">
+                                    </div>
+                                </div>
+                                <div class="map-point" data-table-index="5" style="left: 350px; top: 100px;">
+                                    <div class="temp-circle">
+                                        <img src="/images/map_ic_tem.svg" alt="Temperature" class="temp-icon">
+                                    </div>
+                                </div>
+                                <div class="map-point" data-table-index="6" style="left: 100px; top: 400px;">
+                                    <div class="temp-circle">
+                                        <img src="/images/map_ic_tem.svg" alt="Temperature" class="temp-icon">
+                                    </div>
+                                </div>
+                                <div class="map-point" data-table-index="7" style="left: 450px; top: 300px;">
+                                    <div class="temp-circle">
+                                        <img src="/images/map_ic_tem.svg" alt="Temperature" class="temp-icon">
+                                    </div>
+                                </div>
+                                <div class="map-point" data-table-index="8" style="left: 200px; top: 450px;">
+                                    <div class="temp-circle">
+                                        <img src="/images/map_ic_tem.svg" alt="Temperature" class="temp-icon">
+                                    </div>
+                                </div>
+                                <div class="map-point" data-table-index="9" style="left: 300px; top: 400px;">
+                                    <div class="temp-circle">
+                                        <img src="/images/map_ic_tem.svg" alt="Temperature" class="temp-icon">
+                                    </div>
+                                </div>
+                                <div class="map-point" data-table-index="10" style="left: 400px; top: 450px;">
+                                    <div class="temp-circle">
+                                        <img src="/images/map_ic_tem.svg" alt="Temperature" class="temp-icon">
+                                    </div>
+                                </div>
+                                <div class="map-point" data-table-index="11" style="left: 280px; top: 280px;">
+                                    <div class="temp-circle">
+                                        <img src="/images/map_ic_tem.svg" alt="Temperature" class="temp-icon">
+                                    </div>
+                                </div>
+                                <div class="map-point" data-table-index="12" style="left: 180px; top: 180px;">
+                                    <div class="temp-circle">
+                                        <img src="/images/map_ic_tem.svg" alt="Temperature" class="temp-icon">
+                                    </div>
+                                </div>
+                                <div class="map-point disabled" data-table-index="13" style="left: 380px; top: 380px;">
+                                    <div class="temp-circle disabled">
+                                        <img src="/images/map_ic_dis.svg" alt="Temperature" class="temp-icon">
+                                    </div>
+                                </div>
+                                <div class="map-point" data-table-index="14" style="left: 120px; top: 320px;">
+                                    <div class="temp-circle">
+                                        <img src="/images/map_ic_tem.svg" alt="Temperature" class="temp-icon">
+                                    </div>
+                                </div>
+                                <div class="map-point" data-table-index="15" style="left: 320px; top: 120px;">
+                                    <div class="temp-circle">
+                                        <img src="/images/map_ic_tem.svg" alt="Temperature" class="temp-icon">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <div class="button-group">
+                        <button class="btn btn-primary">서비스 신청</button>
+                        <button class="btn btn-secondary">서비스 해지</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer Placeholder -->
+        <div id="footer-placeholder"></div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <div class="modal-content">
+            <div class="modal-image-container">
+                <img src="/images/pass_popup.png" alt="서비스 안내 이미지" class="modal-image">
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/notification-service.js"></script>
+</body>
+</html>
