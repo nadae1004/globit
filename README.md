@@ -1,24 +1,8 @@
 # globit
 
-25-09-21 : index-map.html, high-temperature.html 작업 완료
+25-09-21 : index-map.html(지도 영역에 온도 아이콘), high-temperature.html(고수온기록)화면 작업 완료
 
 25-09-23 : 1. JavaScript 코드 분리 및 헤더/푸터 컴포넌트화
-- HTML 파일에서 JavaScript 코드를 별도 파일로 분리
-  - index.html → js/main.js
-  - index-map.html → js/map.js  
-  - high-temperature.html → js/high-temperature.js
+           2. notification-service.html(알림서비스)화면 작업
 
-- 헤더와 푸터를 별도 컴포넌트로 분리
-  - components/header.html: 공통 헤더 컴포넌트
-  - components/footer.html: 공통 푸터 컴포넌트
-  - js/components.js: 동적 로딩 및 공통 기능 관리
-
-- 개선사항:
-  - 코드 구조 개선
-  - 헤더/푸터 수정 시 한 곳에서만 관리 가능
-
-2. 알림서비스 페이지 작업
-- 알림서비스 프로세스에 맞게 페이지 구성
-  - 개인정보수집에 관한 동의 화면
-  - pass앱 팝업 화면
-  - 서비스 신청정보 화면
+25-09-25 : admin-login.html(관리자 로그인)화면 작업
