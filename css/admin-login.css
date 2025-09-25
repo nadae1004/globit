@@ -1,0 +1,441 @@
+/* Admin Login Styles - 피그마 디자인 정확 재현 */
+.login-container {
+    min-height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-wrapper {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Header Styles */
+.login-header {
+    width: 100%;
+    padding: 25px 0;
+    /*border-bottom: 1px solid #e4e4e6;*/
+}
+
+.header-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.logo-icon {
+    width: 54px;
+    height: 50px;
+    background-image: url('/images/logo2022.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.logo h1 {
+    font-family: 'Noto Sans KR', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #18181a;
+    letter-spacing: 0;
+    line-height: 35.52px;
+}
+
+/* Login Card */
+.login-card {
+    background-color: #f2f4f8;
+    border-radius: 30px;
+    padding: 40px;
+    /*box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);*/
+}
+
+/* Login Header Section */
+.login-header-section {
+    margin-bottom: 20px;
+}
+
+.login-title-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.login-title {
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #18181a;
+    margin: 0;
+    line-height: 28.64px;
+    letter-spacing: 0;
+}
+
+.admin-badge {
+    background-color: #776bf8;
+    border-radius: 6px;
+    padding: 6px 12px;
+    height: 31px;
+    display: flex;
+    align-items: center;
+}
+
+.admin-badge span {
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0;
+    line-height: 19.09px;
+}
+
+/* Login Form */
+.login-form-container {
+    width: 100%;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-group {
+    width: 100%;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #c8c9cf;
+    border-radius: 10px;
+    padding: 0 20px;
+    height: 50px;
+    transition: all 0.3s ease;
+}
+
+.input-wrapper:focus-within {
+    border-color: #0064dd;
+    box-shadow: 0 0 0 2px rgba(0, 100, 221, 0.1);
+}
+
+.input-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.input-wrapper input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    font-size: 16px;
+    color: #18181a;
+    font-weight: 400;
+    letter-spacing: 0.17px;
+    line-height: 22.88px;
+}
+
+.input-wrapper input::placeholder {
+    color: #9191a1;
+    font-weight: 400;
+    letter-spacing: 0.17px;
+}
+
+.input-wrapper input:focus {
+    color: #18181a;
+}
+
+/* Login Button */
+.login-button-container {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.login-button {
+    width: 100%;
+    height: 50px;
+    background-color: #0064dd;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.4px;
+    line-height: 33.2px;
+}
+
+.login-button:hover {
+    background-color: #0056c7;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 100, 221, 0.3);
+}
+
+.login-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 100, 221, 0.2);
+}
+
+
+/* Footer */
+.login-footer {
+    /*border-top: 1px solid #e4e4e6;*/
+    padding: 20px 0;
+    background-color: #ffffff;
+}
+
+.footer-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.footer-link {
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #18181a;
+    transition: color 0.3s ease;
+    letter-spacing: 0.4px;
+    line-height: 24.9px;
+}
+
+.footer-link.privacy {
+    color: #0064dd;
+}
+
+.footer-link:hover {
+    color: #0064dd;
+}
+
+.copyright {
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #9191a1;
+    letter-spacing: 0px;
+    line-height: 24.9px;
+    text-align: center;
+}
+
+/* Responsive Design */
+
+/* PC 버전 (기본) - 481px 이상 */
+/* 기본 스타일이 PC 버전 */
+/* 디자인 요소들의 크기는 480px까지 변하지 않음 */
+
+/* 모바일 버전 - 480px 이하 */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 10px;
+        min-height: 100vh;
+        align-items: flex-start;
+        padding-top: 20px;
+    }
+    
+    .login-wrapper {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    /* 헤더는 모바일에서도 동일한 크기 유지 */
+    .login-header {
+        padding: 25px 0;
+        /*border-bottom: 1px solid #e4e4e6;*/
+    }
+    
+    .logo h1 {
+        font-size: 24px; /* PC와 동일한 크기 유지 */
+    }
+    
+    .logo-icon {
+        width: 54px; /* PC와 동일한 크기 유지 */
+        height: 50px;
+    }
+    
+    /* 로그인 카드는 모바일에서도 동일한 크기 유지 */
+    .login-card {
+        padding: 40px; /* PC와 동일한 패딩 유지 */
+        border-radius: 30px; /* PC와 동일한 border-radius 유지 */
+        /*box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);*/
+    }
+    
+    .login-title {
+        font-size: 24px; /* PC와 동일한 크기 유지 */
+    }
+    
+    .admin-badge {
+        padding: 6px 12px; /* PC와 동일한 패딩 유지 */
+    }
+    
+    .admin-badge span {
+        font-size: 16px; /* PC와 동일한 크기 유지 */
+    }
+    
+    /* 입력 필드는 모바일에서도 동일한 크기 유지 */
+    .input-wrapper {
+        height: 50px; /* PC와 동일한 높이 유지 */
+        padding: 0 20px; /* PC와 동일한 패딩 유지 */
+    }
+    
+    .input-wrapper input {
+        font-size: 16px; /* PC와 동일한 크기 유지 */
+    }
+    
+    /* 로그인 버튼은 모바일에서도 동일한 크기 유지 */
+    .login-button {
+        height: 50px; /* PC와 동일한 높이 유지 */
+        font-size: 20px; /* PC와 동일한 크기 유지 */
+    }
+    
+    /* 푸터는 모바일에서도 동일한 크기 유지 */
+    .login-footer {
+        padding: 20px 0; /* PC와 동일한 패딩 유지 */
+        /*border-top: 1px solid #e4e4e6;*/
+    }
+    
+    .footer-link {
+        font-size: 15px; /* PC와 동일한 크기 유지 */
+    }
+    
+    .copyright {
+        font-size: 15px; /* PC와 동일한 크기 유지 */
+    }
+    
+    .footer-links {
+        gap: 20px; /* PC와 동일한 간격 유지 */
+    }
+}
+
+/* Loading State */
+.login-button.loading {
+    background-color: #c8c9cf;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.login-button.loading .button-icon {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Error State */
+.input-wrapper.error {
+    border-color: #ff4757;
+    box-shadow: 0 0 0 2px rgba(255, 71, 87, 0.1);
+}
+
+.error-message {
+    color: #ff4757;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+}
+
+.input-wrapper.error + .error-message {
+    display: block;
+}
+
+/* Success State */
+.input-wrapper.success {
+    border-color: #2ed573;
+    box-shadow: 0 0 0 2px rgba(46, 213, 115, 0.1);
+}
+
+/* Focus States */
+.input-wrapper input:focus {
+    color: #18181a;
+}
+
+.input-wrapper input:focus::placeholder {
+    color: transparent;
+}
+
+/* Accessibility */
+.login-button:focus {
+    outline: 2px solid #0064dd;
+    outline-offset: 2px;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .input-wrapper {
+        border-width: 2px;
+    }
+    
+    .login-button {
+        border: 2px solid #0064dd;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .login-button {
+        transition: none;
+    }
+    
+    .input-wrapper {
+        transition: none;
+    }
+    
+    .logo {
+        transition: none;
+    }
+    
+    .footer-link {
+        transition: none;
+    }
+}

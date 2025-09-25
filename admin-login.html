@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 로그인 - 실시간 수산환경 관측시스템</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/admin-login.css">
+    <script src="/js/components.js"></script>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-wrapper">
+            <!-- Header -->
+            <header class="login-header">
+                <div class="header-content">
+                    <a href="/index.html" class="logo">
+                        <div class="logo-icon"></div>
+                        <h1>실시간 수산환경 관측시스템</h1>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Login Card -->
+            <div class="login-card">
+                <!-- Login Header -->
+                <div class="login-header-section">
+                    <div class="login-title-container">
+                        <h2 class="login-title">로그인</h2>
+                        <div class="admin-badge">
+                            <span>관리자</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Login Form -->
+                <div class="login-form-container">
+                    <form class="login-form" id="adminLoginForm">
+                        <!-- ID Input -->
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <div class="input-icon">
+                                    <img src="/images/input_person.svg" alt="사용자 아이콘" width="24" height="24">
+                                </div>
+                                <input 
+                                    type="text" 
+                                    id="adminId" 
+                                    name="adminId" 
+                                    placeholder="아이디를 입력하세요" 
+                                    required
+                                    autocomplete="username"
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Password Input -->
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <div class="input-icon">
+                                    <img src="/images/input_lock.svg" alt="자물쇠 아이콘" width="24" height="24">
+                                </div>
+                                <input 
+                                    type="password" 
+                                    id="adminPassword" 
+                                    name="adminPassword" 
+                                    placeholder="비밀번호를 입력하세요" 
+                                    required
+                                    autocomplete="current-password"
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Login Button -->
+                        <div class="login-button-container">
+                            <button type="submit" class="login-button">
+                                <span>로그인</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="login-footer">
+                <div class="footer-content">
+                    <div class="footer-links">
+                        <a href="#" class="footer-link privacy">개인정보처리방침</a>
+                        <a href="#" class="footer-link copyright-policy">저작권보호정책</a>
+                    </div>
+                    <div class="copyright">
+                        Copyright (C) 2025 Tongyeong City. All rights reserved.
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="/js/admin-login.js"></script>
+</body>
+</html>
