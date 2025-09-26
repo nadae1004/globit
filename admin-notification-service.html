@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>알림서비스 신청정보 - 실시간 수산환경 관측시스템</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/admin-notification-service.css">
+    <script src="/js/components.js"></script>
+    <script src="/js/main.js"></script>
+</head>
+<body class="admin-page">
+    <div class="container">
+        <!-- Header Placeholder -->
+        <div id="header-placeholder"></div>
+
+        <!-- Main Section -->
+        <main class="main-section admin-notification-main">
+            <section class="admin-section">
+                <h1 class="page-title">알림서비스 신청정보</h1>
+                
+                <!-- Search Form -->
+                <div class="search-form">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="phone-search">휴대폰번호</label>
+                            <input type="tel" id="phone-search" placeholder="010-1234-4567" value="010-1234-4567">
+                        </div>
+                        <div class="form-field">
+                            <label for="service-status">서비스 상태</label>
+                            <select id="service-status">
+                                <option value="">전체</option>
+                                <option value="active">사용</option>
+                                <option value="inactive">해지</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <button class="search-btn">
+                                <img src="images/btn_search.svg" alt="조회" width="24" height="24">
+                                <span>조회</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <div class="data-table-container">
+                    <div class="data-table">
+                        <div class="table-header">
+                            <div class="table-cell">전화번호</div>
+                            <div class="table-cell">신청일자</div>
+                            <div class="table-cell">신청지역</div>
+                            <div class="table-cell">서비스 상태</div>
+                            <div class="table-cell">신청해지</div>
+                        </div>
+                        
+                        <div class="table-body">
+                            <div class="table-row">
+                                <div class="table-cell">010-1234-4567</div>
+                                <div class="table-cell">2025-01-06</div>
+                                <div class="table-cell">욕지연화, 도산 법송, ...</div>
+                                <div class="table-cell">사용</div>
+                                <div class="table-cell">
+                                    <button class="terminate-btn">
+                                        <img src="images/btn_block.svg" alt="신청해지" width="20" height="20">
+                                        <span>신청해지</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">010-1234-4567</div>
+                                <div class="table-cell">2025-01-07</div>
+                                <div class="table-cell">욕지 연화</div>
+                                <div class="table-cell">사용</div>
+                                <div class="table-cell">
+                                    <button class="terminate-btn">
+                                        <img src="images/btn_block.svg" alt="신청해지" width="20" height="20">
+                                        <span>신청해지</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row terminated">
+                                <div class="table-cell">010-1234-4567</div>
+                                <div class="table-cell">2025-01-07</div>
+                                <div class="table-cell">욕지 연화</div>
+                                <div class="table-cell">해지</div>
+                                <div class="table-cell">
+                                    <button class="terminate-btn">
+                                        <img src="images/btn_block.svg" alt="신청해지" width="20" height="20">
+                                        <span>신청해지</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">010-1234-4567</div>
+                                <div class="table-cell">2025-01-07</div>
+                                <div class="table-cell">욕지 연화</div>
+                                <div class="table-cell">사용</div>
+                                <div class="table-cell">
+                                    <button class="terminate-btn">
+                                        <img src="images/btn_block.svg" alt="신청해지" width="20" height="20">
+                                        <span>신청해지</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">010-1234-4567</div>
+                                <div class="table-cell">2025-01-07</div>
+                                <div class="table-cell">욕지 연화</div>
+                                <div class="table-cell">사용</div>
+                                <div class="table-cell">
+                                    <button class="terminate-btn">
+                                        <img src="images/btn_block.svg" alt="신청해지" width="20" height="20">
+                                        <span>신청해지</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">010-1234-4567</div>
+                                <div class="table-cell">2025-01-07</div>
+                                <div class="table-cell">욕지 연화</div>
+                                <div class="table-cell">사용</div>
+                                <div class="table-cell">
+                                    <button class="terminate-btn">
+                                        <img src="images/btn_block.svg" alt="신청해지" width="20" height="20">
+                                        <span>신청해지</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">010-1234-4567</div>
+                                <div class="table-cell">2025-01-07</div>
+                                <div class="table-cell">욕지 연화</div>
+                                <div class="table-cell">사용</div>
+                                <div class="table-cell">
+                                    <button class="terminate-btn">
+                                        <img src="images/btn_block.svg" alt="신청해지" width="20" height="20">
+                                        <span>신청해지</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">010-1234-4567</div>
+                                <div class="table-cell">2025-01-07</div>
+                                <div class="table-cell">욕지 연화</div>
+                                <div class="table-cell">사용</div>
+                                <div class="table-cell">
+                                    <button class="terminate-btn">
+                                        <img src="images/btn_block.svg" alt="신청해지" width="20" height="20">
+                                        <span>신청해지</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">010-1234-4567</div>
+                                <div class="table-cell">2025-01-07</div>
+                                <div class="table-cell">욕지 연화</div>
+                                <div class="table-cell">사용</div>
+                                <div class="table-cell">
+                                    <button class="terminate-btn">
+                                        <img src="images/btn_block.svg" alt="신청해지" width="20" height="20">
+                                        <span>신청해지</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">010-1234-4567</div>
+                                <div class="table-cell">2025-01-07</div>
+                                <div class="table-cell">욕지 연화</div>
+                                <div class="table-cell">사용</div>
+                                <div class="table-cell">
+                                    <button class="terminate-btn">
+                                        <img src="images/btn_block.svg" alt="신청해지" width="20" height="20">
+                                        <span>신청해지</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">010-1234-4567</div>
+                                <div class="table-cell">2025-01-07</div>
+                                <div class="table-cell">욕지 연화</div>
+                                <div class="table-cell">사용</div>
+                                <div class="table-cell">
+                                    <button class="terminate-btn">
+                                        <img src="images/btn_block.svg" alt="신청해지" width="20" height="20">
+                                        <span>신청해지</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">010-1234-4567</div>
+                                <div class="table-cell">2025-01-07</div>
+                                <div class="table-cell">욕지 연화</div>
+                                <div class="table-cell">사용</div>
+                                <div class="table-cell">
+                                    <button class="terminate-btn">
+                                        <img src="images/btn_block.svg" alt="신청해지" width="20" height="20">
+                                        <span>신청해지</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">010-1234-4567</div>
+                                <div class="table-cell">2025-01-07</div>
+                                <div class="table-cell">욕지 연화</div>
+                                <div class="table-cell">사용</div>
+                                <div class="table-cell">
+                                    <button class="terminate-btn">
+                                        <img src="images/btn_block.svg" alt="신청해지" width="20" height="20">
+                                        <span>신청해지</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer Placeholder -->
+        <div id="footer-placeholder"></div>
+    </div>
+
+    <script src="/js/admin-components.js"></script>
+    <script src="/js/admin-notification-service.js"></script>
+</body>
+</html>
