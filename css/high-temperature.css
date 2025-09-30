@@ -434,17 +434,32 @@
 /* Temperature Table */
 .temperature-table {
     border-radius: 20px;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     background-color: #ffffff;
     border: 1px solid #e4e4e6;
+    -webkit-overflow-scrolling: touch;
 }
 
 .data-table {
     width: 100%;
+    min-width: 1200px;
     border-collapse: collapse;
     font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 16px;
     background-color: #ffffff;
+    table-layout: fixed;
+}
+
+/* 컬럼 너비 설정 */
+.data-table th:nth-child(1),
+.data-table td:nth-child(1) {
+    width: 120px;
+}
+
+.data-table th:nth-child(n+2),
+.data-table td:nth-child(n+2) {
+    width: 60px;
 }
 
 .data-table thead {
@@ -461,6 +476,8 @@
     font-size: 16px;
     letter-spacing: 0.17px;
     line-height: 22.88px;
+    white-space: nowrap;
+    min-width: 60px;
 }
 
 .data-table td {
@@ -471,6 +488,8 @@
     font-weight: 400;
     letter-spacing: 0.17px;
     line-height: 22.88px;
+    white-space: nowrap;
+    min-width: 60px;
 }
 
 .data-table tbody tr:hover {
@@ -479,6 +498,26 @@
 
 .data-table tbody tr:last-child td {
     border-bottom: none;
+}
+
+/* 첫 번째 컬럼(정점명)은 더 넓게 설정 */
+.data-table th:first-child,
+.data-table td:first-child {
+    text-align: left;
+    padding-left: 20px;
+    position: sticky;
+    left: 0;
+    background-color: #f2f4f8;
+    z-index: 10;
+    /*box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);*/
+}
+
+.data-table td:first-child {
+    background-color: #ffffff;
+}
+
+.data-table tbody tr:hover td:first-child {
+    background-color: #f8f9ff;
 }
 
 /* Responsive Design */
@@ -596,11 +635,27 @@
     
     .data-table {
         font-size: 14px;
+        min-width: 1000px;
+    }
+    
+    .data-table th:nth-child(1),
+    .data-table td:nth-child(1) {
+        width: 100px;
+    }
+    
+    .data-table th:nth-child(n+2),
+    .data-table td:nth-child(n+2) {
+        width: 50px;
     }
     
     .data-table th,
     .data-table td {
         padding: 16px 12px;
+    }
+    
+    .data-table th:first-child,
+    .data-table td:first-child {
+        padding-left: 16px;
     }
 }
 
@@ -713,10 +768,26 @@
     
     .data-table {
         font-size: 12px;
+        min-width: 800px;
+    }
+    
+    .data-table th:nth-child(1),
+    .data-table td:nth-child(1) {
+        width: 80px;
+    }
+    
+    .data-table th:nth-child(n+2),
+    .data-table td:nth-child(n+2) {
+        width: 40px;
     }
     
     .data-table th,
     .data-table td {
         padding: 12px 8px;
+    }
+    
+    .data-table th:first-child,
+    .data-table td:first-child {
+        padding-left: 12px;
     }
 }
