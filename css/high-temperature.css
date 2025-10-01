@@ -499,12 +499,14 @@
 .data-table tbody tr:last-child td {
     border-bottom: none;
 }
+.data-table th:first-child,
+.data-table td:first-child { text-align: center; }
 
 /* 첫 번째 컬럼(정점명)은 더 넓게 설정 */
 .data-table th:first-child,
 .data-table td:first-child {
-    text-align: left;
-    padding-left: 20px;
+    text-align: center;
+    padding-left: 0;
     position: sticky;
     left: 0;
     background-color: #f2f4f8;
@@ -655,7 +657,7 @@
     
     .data-table th:first-child,
     .data-table td:first-child {
-        padding-left: 16px;
+        padding-left: 0;
     }
 }
 
@@ -788,6 +790,6 @@
     
     .data-table th:first-child,
     .data-table td:first-child {
-        padding-left: 12px;
+        padding-left: 0;
     }
 }
