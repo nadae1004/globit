@@ -249,6 +249,13 @@
     box-sizing: border-box;
 }
 
+/* 윈도우 환경에서 드롭다운 외곽선 보장 */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .time-select {
+        border: 2px solid #c8c9cf !important;
+    }
+}
+
 .time-group .time-select {
     width: 100%;
     flex: 1;
@@ -824,15 +831,16 @@
     }
     
     .time-group .time-select {
-        width: 100% !important;
-        flex: none !important;
+        width: auto !important;
+        flex: 1 !important;
+        min-width: 60px;
         box-sizing: border-box;
     }
     
     .time-group {
         width: 100%;
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row;
+        gap: 8px;
         box-sizing: border-box;
     }
     
@@ -862,7 +870,10 @@
     }
     
     .time-group {
-        justify-content: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        gap: 8px;
+        width: 100%;
     }
     
     .station-table-container {
@@ -946,16 +957,18 @@
     }
     
     .time-group .time-select {
-        width: 100% !important;
-        flex: none !important;
+        width: auto !important;
+        flex: 1 !important;
+        min-width: 60px;
         box-sizing: border-box;
     }
     
     .time-group {
         width: 100%;
-        flex-direction: column;
+        flex-direction: row;
         gap: 8px;
         box-sizing: border-box;
+        justify-content: flex-start;
     }
     
     .consent-buttons {
