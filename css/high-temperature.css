@@ -131,7 +131,6 @@
 }
 
 .calendar-day:hover:not(.prev-month):not(.next-month) {
-    background-color: #f8f9ff;
     border-color: #0064dd;
 }
 
@@ -240,9 +239,9 @@
     position: relative;
 }
 
-/* Selected 상태 - 라인이 있는 상태 */
-.station-item.selected {
-    background-color: #fadbcd;
+/* Selected 상태 - 라인이 있는 상태 (highOn이 아닌 경우 배경색 흰색 유지) */
+.station-item.selected:not(.highOn) {
+    background-color: #ffffff;
     border: 2px solid #fb7c4e;
     color: #fb7c4e;
     font-weight: 700;
@@ -263,8 +262,13 @@
     font-weight: 700 !important;
 }
 
+.station-item.highOn.selected:hover {
+    border-color: #0064dd !important;
+    color: #0064dd !important;
+}
+
 .station-item.highlighted {
-    background-color: #d8eaff;
+    background-color: #ffffff;
     border-color: #088ec5;
     color: #088ec5;
     font-size: 20px;
@@ -272,7 +276,6 @@
 }
 
 .station-item:hover:not(.highlighted) {
-    background-color: #f8f9ff;
     border-color: #0064dd;
     color: #0064dd;
 }
@@ -439,6 +442,37 @@
     background-color: #ffffff;
     border: 1px solid #e4e4e6;
     -webkit-overflow-scrolling: touch;
+}
+
+/* Empty State Table - thead만 스크롤, 메시지는 고정 */
+.temperature-table.empty-state {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.temperature-table.empty-state .table-scroll-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.temperature-table.empty-state .empty-state-message {
+    width: 100%;
+    padding: 40px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-top: 1px solid #e4e4e6;
+}
+
+.temperature-table.empty-state .empty-state-message p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #9191a1;
+    margin: 0;
+    text-align: center;
 }
 
 .data-table {
@@ -659,6 +693,14 @@
     .data-table td:first-child {
         padding-left: 0;
     }
+    
+    .temperature-table.empty-state .empty-state-message {
+        padding: 50px 20px;
+    }
+    
+    .temperature-table.empty-state .empty-state-message p {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -791,5 +833,13 @@
     .data-table th:first-child,
     .data-table td:first-child {
         padding-left: 0;
+    }
+    
+    .temperature-table.empty-state .empty-state-message {
+        padding: 40px 15px;
+    }
+    
+    .temperature-table.empty-state .empty-state-message p {
+        font-size: 12px;
     }
 }
