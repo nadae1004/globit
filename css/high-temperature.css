@@ -556,6 +556,12 @@
     background-color: #f8f9ff;
 }
 
+/* High Temperature Highlight */
+.data-table td.high-temp {
+    color: #fb7c4e;
+    font-weight: 700;
+}
+
 /* Responsive Design */
 @media (max-width: 1200px) {
     .calendar-station-section {
@@ -743,6 +749,7 @@
         height: 45px;
         padding: 6px;
         font-size: 11px;
+        border-radius: 10px;
     }
     
     .temp-indicator {
@@ -772,6 +779,16 @@
         font-size: 12px;
     }
     
+    .station-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+    }
+    
+    .station-row {
+        display: contents;
+    }
+    
     .station-item {
         height: 45px;
         font-size: 12px;
@@ -779,6 +796,10 @@
     
     .station-item.highlighted {
         font-size: 16px;
+    }
+    
+    .graph-section {
+        padding: 15px;
     }
     
     .graph-title h4 {
