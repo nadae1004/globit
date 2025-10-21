@@ -36,6 +36,46 @@ function setupEventListeners() {
         btn.addEventListener('click', handleTerminate);
     });
     
+    // Region cells - open popup
+    const regionCells = document.querySelectorAll('.region-cell');
+    regionCells.forEach(cell => {
+        cell.addEventListener('click', handleRegionClick);
+    });
+    
+    // Popup close button
+    const popupClose = document.querySelector('.popup-close');
+    if (popupClose) {
+        popupClose.addEventListener('click', closeRegionPopup);
+    }
+    
+    // Popup secondary button (취소)
+    const popupSecondaryBtn = document.querySelector('.popup-btn-secondary');
+    if (popupSecondaryBtn) {
+        popupSecondaryBtn.addEventListener('click', closeRegionPopup);
+    }
+    
+    // Popup primary button (서비스 정보 수정)
+    const popupPrimaryBtn = document.querySelector('.popup-btn-primary');
+    if (popupPrimaryBtn) {
+        popupPrimaryBtn.addEventListener('click', handleServiceUpdate);
+    }
+    
+    // Close popup when clicking overlay
+    const popupOverlay = document.getElementById('region-popup');
+    if (popupOverlay) {
+        popupOverlay.addEventListener('click', function(e) {
+            if (e.target === popupOverlay) {
+                closeRegionPopup();
+            }
+        });
+    }
+    
+    // Close popup with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeRegionPopup();
+        }
+    });
 }
 
 function initializeSearch() {
@@ -175,6 +215,94 @@ function showNotification(message, type = 'info') {
             }
         }, 300);
     }, 3000);
+}
+
+// Region Popup Functions
+function handleRegionClick(event) {
+    const cell = event.currentTarget;
+    const phoneNumber = cell.dataset.phone;
+    
+    // Open the popup
+    openRegionPopup(phoneNumber);
+}
+
+function openRegionPopup(phoneNumber) {
+    const popup = document.getElementById('region-popup');
+    const phoneInput = document.getElementById('popup-phone');
+    
+    if (popup) {
+        // Set phone number in popup
+        if (phoneInput && phoneNumber) {
+            phoneInput.value = phoneNumber;
+        }
+        
+        // Show popup with animation
+        popup.classList.add('active');
+        
+        // Prevent body scroll
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeRegionPopup() {
+    const popup = document.getElementById('region-popup');
+    
+    if (popup) {
+        popup.classList.remove('active');
+        
+        // Restore body scroll
+        document.body.style.overflow = '';
+    }
+}
+
+function handleServiceUpdate() {
+    // Get selected regions
+    const checkboxes = document.querySelectorAll('.region-checkbox:checked:not(:disabled)');
+    const selectedRegions = Array.from(checkboxes).map((checkbox, index) => {
+        const row = checkbox.closest('.popup-table-row');
+        const cells = row.querySelectorAll('.popup-table-cell');
+        return {
+            region: cells[0].textContent,
+            code: cells[1].textContent,
+            latitude: cells[2].textContent,
+            longitude: cells[3].textContent
+        };
+    });
+    
+    // Get time range
+    const timeSelects = document.querySelectorAll('.time-select');
+    const startHour = timeSelects[0].value;
+    const startMin = timeSelects[1].value;
+    const endHour = timeSelects[2].value;
+    const endMin = timeSelects[3].value;
+    
+    console.log('Service Update:', {
+        phone: document.getElementById('popup-phone').value,
+        timeRange: `${startHour}:${startMin} ~ ${endHour}:${endMin}`,
+        selectedRegions: selectedRegions
+    });
+    
+    // Show loading state
+    const primaryBtn = document.querySelector('.popup-btn-primary');
+    if (primaryBtn) {
+        primaryBtn.disabled = true;
+        primaryBtn.innerHTML = '<span>처리중...</span>';
+    }
+    
+    // Simulate API call
+    setTimeout(() => {
+        // Reset button
+        if (primaryBtn) {
+            primaryBtn.disabled = false;
+            primaryBtn.innerHTML = '<span>서비스 정보 수정</span>';
+        }
+        
+        // Close popup
+        closeRegionPopup();
+        
+        // Show success message
+        showNotification('서비스 정보가 성공적으로 수정되었습니다.', 'success');
+    }, 1500);
 }
 
 // Add CSS for spin animation
