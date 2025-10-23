@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializePage() {
     // Initialize search functionality
     initializeSearch();
+    
+    // Initialize pagination
+    initializePagination();
 }
 
 function setupEventListeners() {
@@ -76,6 +79,12 @@ function setupEventListeners() {
             closeRegionPopup();
         }
     });
+    
+    // Pagination event listeners
+    setupPaginationEventListeners();
+    
+    // Popup pagination event listeners
+    setupPopupPaginationEventListeners();
 }
 
 function initializeSearch() {
@@ -167,6 +176,11 @@ function updateTableWithSearchResults(phone, status) {
     // This would typically update the table with new data from the API
     console.log('Updating table with search results:', { phone, status });
     
+    // Reset pagination to first page when searching
+    currentPage = 1;
+    updatePaginationDisplay();
+    updateTableDisplay();
+    
     // For demo purposes, we'll just show a notification
     showNotification('검색이 완료되었습니다.', 'info');
 }
@@ -238,6 +252,9 @@ function openRegionPopup(phoneNumber) {
         
         // Show popup with animation
         popup.classList.add('active');
+        
+        // Initialize popup pagination
+        initializePopupPagination();
         
         // Prevent body scroll
         document.body.style.overflow = 'hidden';
@@ -314,3 +331,271 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Pagination functionality
+let currentPage = 1;
+let totalPages = 15; // 총 150건, 페이지당 10건
+let itemsPerPage = 10;
+
+// Popup pagination functionality
+let popupCurrentPage = 1;
+let popupTotalPages = 3; // 총 25건, 페이지당 10건
+let popupItemsPerPage = 10;
+
+function initializePagination() {
+    updatePaginationDisplay();
+}
+
+function initializePopupPagination() {
+    updatePopupPaginationDisplay();
+    updatePopupTableDisplay();
+}
+
+function setupPaginationEventListeners() {
+    // First page button
+    const firstBtn = document.querySelector('.pagination-btn-first');
+    if (firstBtn) {
+        firstBtn.addEventListener('click', () => goToPage(1));
+    }
+    
+    // Previous page button
+    const prevBtn = document.querySelector('.pagination-btn-prev');
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
+    }
+    
+    // Next page button
+    const nextBtn = document.querySelector('.pagination-btn-next');
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
+    }
+    
+    // Last page button
+    const lastBtn = document.querySelector('.pagination-btn-last');
+    if (lastBtn) {
+        lastBtn.addEventListener('click', () => goToPage(totalPages));
+    }
+    
+    // Page number buttons
+    const pageBtns = document.querySelectorAll('.pagination-page');
+    pageBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const pageNum = parseInt(btn.textContent);
+            goToPage(pageNum);
+        });
+    });
+}
+
+function goToPage(page) {
+    if (page < 1 || page > totalPages || page === currentPage) {
+        return;
+    }
+    
+    currentPage = page;
+    updatePaginationDisplay();
+    updateTableDisplay();
+    showNotification(`페이지 ${page}로 이동했습니다.`, 'info');
+}
+
+function updatePaginationDisplay() {
+    // Update pagination info
+    const paginationInfo = document.querySelector('.pagination-info span');
+    if (paginationInfo) {
+        const startItem = (currentPage - 1) * itemsPerPage + 1;
+        const endItem = Math.min(currentPage * itemsPerPage, 150);
+        paginationInfo.innerHTML = `총 <strong>150</strong>건 중 <strong>${startItem}-${endItem}</strong>건 표시`;
+    }
+    
+    // Update button states
+    const firstBtn = document.querySelector('.pagination-btn-first');
+    const prevBtn = document.querySelector('.pagination-btn-prev');
+    const nextBtn = document.querySelector('.pagination-btn-next');
+    const lastBtn = document.querySelector('.pagination-btn-last');
+    
+    if (firstBtn) firstBtn.disabled = currentPage === 1;
+    if (prevBtn) prevBtn.disabled = currentPage === 1;
+    if (nextBtn) nextBtn.disabled = currentPage === totalPages;
+    if (lastBtn) lastBtn.disabled = currentPage === totalPages;
+    
+    // Update page number buttons
+    updatePageNumberButtons();
+}
+
+function updatePageNumberButtons() {
+    const pageButtons = document.querySelectorAll('.pagination-page');
+    const pagesContainer = document.querySelector('.pagination-pages');
+    
+    if (!pagesContainer) return;
+    
+    // Clear existing buttons
+    pagesContainer.innerHTML = '';
+    
+    // Calculate which pages to show
+    let startPage = Math.max(1, currentPage - 2);
+    let endPage = Math.min(totalPages, currentPage + 2);
+    
+    // Adjust range if we're near the beginning or end
+    if (endPage - startPage < 4) {
+        if (startPage === 1) {
+            endPage = Math.min(totalPages, startPage + 4);
+        } else if (endPage === totalPages) {
+            startPage = Math.max(1, endPage - 4);
+        }
+    }
+    
+    // Create page buttons
+    for (let i = startPage; i <= endPage; i++) {
+        const pageBtn = document.createElement('button');
+        pageBtn.className = 'pagination-page';
+        pageBtn.textContent = i;
+        
+        if (i === currentPage) {
+            pageBtn.classList.add('active');
+        }
+        
+        pageBtn.addEventListener('click', () => goToPage(i));
+        pagesContainer.appendChild(pageBtn);
+    }
+}
+
+function updateTableDisplay() {
+    // Hide all table rows
+    const tableRows = document.querySelectorAll('.table-row');
+    tableRows.forEach(row => {
+        row.style.display = 'none';
+    });
+    
+    // Show rows for current page
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = Math.min(startIndex + itemsPerPage, tableRows.length);
+    
+    for (let i = startIndex; i < endIndex; i++) {
+        if (tableRows[i]) {
+            tableRows[i].style.display = 'grid';
+        }
+    }
+}
+
+// Popup pagination functions
+function setupPopupPaginationEventListeners() {
+    // Popup first page button
+    const popupFirstBtn = document.querySelector('.popup-pagination-btn-first');
+    if (popupFirstBtn) {
+        popupFirstBtn.addEventListener('click', () => goToPopupPage(1));
+    }
+    
+    // Popup previous page button
+    const popupPrevBtn = document.querySelector('.popup-pagination-btn-prev');
+    if (popupPrevBtn) {
+        popupPrevBtn.addEventListener('click', () => goToPopupPage(popupCurrentPage - 1));
+    }
+    
+    // Popup next page button
+    const popupNextBtn = document.querySelector('.popup-pagination-btn-next');
+    if (popupNextBtn) {
+        popupNextBtn.addEventListener('click', () => goToPopupPage(popupCurrentPage + 1));
+    }
+    
+    // Popup last page button
+    const popupLastBtn = document.querySelector('.popup-pagination-btn-last');
+    if (popupLastBtn) {
+        popupLastBtn.addEventListener('click', () => goToPopupPage(popupTotalPages));
+    }
+    
+    // Popup page number buttons
+    const popupPageBtns = document.querySelectorAll('.popup-pagination-page');
+    popupPageBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const pageNum = parseInt(btn.textContent);
+            goToPopupPage(pageNum);
+        });
+    });
+}
+
+function goToPopupPage(page) {
+    if (page < 1 || page > popupTotalPages || page === popupCurrentPage) {
+        return;
+    }
+    
+    popupCurrentPage = page;
+    updatePopupPaginationDisplay();
+    updatePopupTableDisplay();
+}
+
+function updatePopupPaginationDisplay() {
+    // Update popup pagination info
+    const popupPaginationInfo = document.querySelector('.popup-pagination-info span');
+    if (popupPaginationInfo) {
+        const startItem = (popupCurrentPage - 1) * popupItemsPerPage + 1;
+        const endItem = Math.min(popupCurrentPage * popupItemsPerPage, 25);
+        popupPaginationInfo.innerHTML = `총 <strong>25</strong>건 중 <strong>${startItem}-${endItem}</strong>건 표시`;
+    }
+    
+    // Update popup button states
+    const popupFirstBtn = document.querySelector('.popup-pagination-btn-first');
+    const popupPrevBtn = document.querySelector('.popup-pagination-btn-prev');
+    const popupNextBtn = document.querySelector('.popup-pagination-btn-next');
+    const popupLastBtn = document.querySelector('.popup-pagination-btn-last');
+    
+    if (popupFirstBtn) popupFirstBtn.disabled = popupCurrentPage === 1;
+    if (popupPrevBtn) popupPrevBtn.disabled = popupCurrentPage === 1;
+    if (popupNextBtn) popupNextBtn.disabled = popupCurrentPage === popupTotalPages;
+    if (popupLastBtn) popupLastBtn.disabled = popupCurrentPage === popupTotalPages;
+    
+    // Update popup page number buttons
+    updatePopupPageNumberButtons();
+}
+
+function updatePopupPageNumberButtons() {
+    const popupPagesContainer = document.querySelector('.popup-pagination-pages');
+    
+    if (!popupPagesContainer) return;
+    
+    // Clear existing buttons
+    popupPagesContainer.innerHTML = '';
+    
+    // Calculate which pages to show
+    let startPage = Math.max(1, popupCurrentPage - 2);
+    let endPage = Math.min(popupTotalPages, popupCurrentPage + 2);
+    
+    // Adjust range if we're near the beginning or end
+    if (endPage - startPage < 4) {
+        if (startPage === 1) {
+            endPage = Math.min(popupTotalPages, startPage + 4);
+        } else if (endPage === popupTotalPages) {
+            startPage = Math.max(1, endPage - 4);
+        }
+    }
+    
+    // Create popup page buttons
+    for (let i = startPage; i <= endPage; i++) {
+        const popupPageBtn = document.createElement('button');
+        popupPageBtn.className = 'popup-pagination-page';
+        popupPageBtn.textContent = i;
+        
+        if (i === popupCurrentPage) {
+            popupPageBtn.classList.add('active');
+        }
+        
+        popupPageBtn.addEventListener('click', () => goToPopupPage(i));
+        popupPagesContainer.appendChild(popupPageBtn);
+    }
+}
+
+function updatePopupTableDisplay() {
+    // Hide all popup table rows
+    const popupTableRows = document.querySelectorAll('.popup-table-row');
+    popupTableRows.forEach(row => {
+        row.style.display = 'none';
+    });
+    
+    // Show rows for current popup page
+    const startIndex = (popupCurrentPage - 1) * popupItemsPerPage;
+    const endIndex = Math.min(startIndex + popupItemsPerPage, popupTableRows.length);
+    
+    for (let i = startIndex; i < endIndex; i++) {
+        if (popupTableRows[i]) {
+            popupTableRows[i].style.display = 'grid';
+        }
+    }
+}

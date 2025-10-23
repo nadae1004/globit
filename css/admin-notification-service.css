@@ -1110,3 +1110,349 @@
         height: 8px;
     }
 }
+
+/* Pagination Styles */
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #ffffff;
+    border-top: 1px solid #e4e4e6;
+}
+
+.pagination-info {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #5e5e6d;
+    line-height: 20px;
+}
+
+.pagination-info strong {
+    font-weight: 600;
+    color: #18181a;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pagination-btn {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #e4e4e6;
+    border-radius: 8px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: #f8f9ff;
+    border-color: #0064dd;
+}
+
+.pagination-btn:disabled {
+    background-color: #f2f4f8;
+    border-color: #e4e4e6;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.pagination-btn img {
+    width: 16px;
+    height: 16px;
+}
+
+.pagination-pages {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0 8px;
+}
+
+.pagination-page {
+    min-width: 32px;
+    height: 32px;
+    border: 1px solid #e4e4e6;
+    border-radius: 8px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #18181a;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0 8px;
+}
+
+.pagination-page:hover {
+    background-color: #f8f9ff;
+    border-color: #0064dd;
+}
+
+.pagination-page.active {
+    background-color: #0064dd;
+    border-color: #0064dd;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.pagination-page.active:hover {
+    background-color: #0052b3;
+    border-color: #0052b3;
+}
+
+/* Responsive Pagination */
+@media (max-width: 768px) {
+    .pagination-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    .pagination-info {
+        font-size: 13px;
+        text-align: center;
+    }
+    
+    .pagination {
+        gap: 6px;
+    }
+    
+    .pagination-btn {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .pagination-btn img {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .pagination-pages {
+        gap: 3px;
+        margin: 0 6px;
+    }
+    
+    .pagination-page {
+        min-width: 28px;
+        height: 28px;
+        font-size: 13px;
+        padding: 0 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagination-container {
+        padding: 12px 15px;
+    }
+    
+    .pagination-info {
+        font-size: 12px;
+    }
+    
+    .pagination-btn {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .pagination-btn img {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .pagination-pages {
+        gap: 2px;
+        margin: 0 4px;
+    }
+    
+    .pagination-page {
+        min-width: 24px;
+        height: 24px;
+        font-size: 12px;
+        padding: 0 4px;
+    }
+}
+
+/* Popup Pagination Styles */
+.popup-pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-top: 1px solid #e4e4e6;
+}
+
+.popup-pagination-info {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #5e5e6d;
+    line-height: 18px;
+}
+
+.popup-pagination-info strong {
+    font-weight: 600;
+    color: #18181a;
+}
+
+.popup-pagination {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.popup-pagination-btn {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #e4e4e6;
+    border-radius: 6px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.popup-pagination-btn:hover:not(:disabled) {
+    background-color: #f8f9ff;
+    border-color: #0064dd;
+}
+
+.popup-pagination-btn:disabled {
+    background-color: #f2f4f8;
+    border-color: #e4e4e6;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.popup-pagination-btn img {
+    width: 14px;
+    height: 14px;
+}
+
+.popup-pagination-pages {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin: 0 6px;
+}
+
+.popup-pagination-page {
+    min-width: 28px;
+    height: 28px;
+    border: 1px solid #e4e4e6;
+    border-radius: 6px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    color: #18181a;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0 6px;
+}
+
+.popup-pagination-page:hover {
+    background-color: #f8f9ff;
+    border-color: #0064dd;
+}
+
+.popup-pagination-page.active {
+    background-color: #0064dd;
+    border-color: #0064dd;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.popup-pagination-page.active:hover {
+    background-color: #0052b3;
+    border-color: #0052b3;
+}
+
+/* Responsive Popup Pagination */
+@media (max-width: 768px) {
+    .popup-pagination-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 15px;
+    }
+    
+    .popup-pagination-info {
+        font-size: 12px;
+        text-align: center;
+    }
+    
+    .popup-pagination {
+        gap: 4px;
+    }
+    
+    .popup-pagination-btn {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .popup-pagination-btn img {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .popup-pagination-pages {
+        gap: 2px;
+        margin: 0 4px;
+    }
+    
+    .popup-pagination-page {
+        min-width: 24px;
+        height: 24px;
+        font-size: 12px;
+        padding: 0 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-pagination-container {
+        padding: 10px 12px;
+    }
+    
+    .popup-pagination-info {
+        font-size: 11px;
+    }
+    
+    .popup-pagination-btn {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .popup-pagination-btn img {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .popup-pagination-pages {
+        gap: 1px;
+        margin: 0 3px;
+    }
+    
+    .popup-pagination-page {
+        min-width: 22px;
+        height: 22px;
+        font-size: 11px;
+        padding: 0 3px;
+    }
+}
