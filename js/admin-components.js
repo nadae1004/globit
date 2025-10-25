@@ -67,4 +67,59 @@ function initializeAdminHeaderFunctions() {
             });
         });
     }
+    
+    // 드롭다운 메뉴 기능 초기화
+    initializeDropdownMenu();
+}
+
+// 드롭다운 메뉴 기능 초기화
+function initializeDropdownMenu() {
+    const dropdownItems = document.querySelectorAll('.nav-item.dropdown');
+    
+    dropdownItems.forEach(item => {
+        const dropdownToggle = item.querySelector('.dropdown-toggle');
+        const dropdownMenu = item.querySelector('.dropdown-menu');
+        
+        if (dropdownToggle && dropdownMenu) {
+            // 클릭 이벤트로 드롭다운 토글
+            dropdownToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // 다른 드롭다운 메뉴들 닫기
+                closeAllDropdowns();
+                
+                // 현재 드롭다운 메뉴 토글
+                item.classList.toggle('dropdown-open');
+            });
+            
+            // 드롭다운 메뉴 아이템 클릭 이벤트
+            const dropdownMenuItems = dropdownMenu.querySelectorAll('.dropdown-item');
+            dropdownMenuItems.forEach(menuItem => {
+                menuItem.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Selected:', menuItem.textContent);
+                    // 여기에 실제 페이지 이동 로직을 추가할 수 있습니다
+                    
+                    // 드롭다운 메뉴 닫기
+                    item.classList.remove('dropdown-open');
+                });
+            });
+        }
+    });
+    
+    // 외부 클릭 시 드롭다운 메뉴 닫기
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-item.dropdown')) {
+            closeAllDropdowns();
+        }
+    });
+}
+
+// 모든 드롭다운 메뉴 닫기
+function closeAllDropdowns() {
+    const dropdownItems = document.querySelectorAll('.nav-item.dropdown');
+    dropdownItems.forEach(item => {
+        item.classList.remove('dropdown-open');
+    });
 }
