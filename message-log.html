@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메세지 전송 로그 - 실시간 수산환경 관측시스템</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/message-log.css">
+    <script src="/js/components.js"></script>
+    <script src="/js/main.js"></script>
+</head>
+<body class="admin-page">
+    <div class="container">
+        <!-- Header Placeholder -->
+        <div id="header-placeholder"></div>
+
+        <!-- Main Section -->
+        <main class="main-section admin-message-log-main">
+            <section class="admin-section">
+                <h1 class="page-title">메세지 전송 로그</h1>
+                
+                <!-- Search Form -->
+                <div class="search-form">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="date-from">전송일자<span>*</span></label>
+                            <div class="date-range-inputs">
+                                <div class="date-input-group">
+                                    <div class="date-input-wrapper">
+                                        <input type="text" id="date-from" value="2025-10-26" placeholder="YYYY-MM-DD" readonly>
+                                        <img src="images/calendar_month.svg" alt="달력" class="calendar-icon">
+                                    </div>
+                                </div>
+                                <span class="date-separator">~</span>
+                                <div class="date-input-group">
+                                    <div class="date-input-wrapper">
+                                        <input type="text" id="date-to" value="2025-10-26" placeholder="YYYY-MM-DD" readonly>
+                                        <img src="images/calendar_month.svg" alt="달력" class="calendar-icon">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="message-type">메세지 구분</label>
+                            <select id="message-type">
+                                <option value="">전체</option>
+                                <option value="high-temp" selected>고수온 예보</option>
+                                <option value="low-temp">저수온 예보</option>
+                                <option value="storm">폭풍 예보</option>
+                                <option value="maintenance">점검 안내</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="send-status">전송 상태</label>
+                            <select id="send-status">
+                                <option value="">전체</option>
+                                <option value="success" selected>성공</option>
+                                <option value="failed">실패</option>
+                                <option value="pending">대기중</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <button class="search-btn">
+                                <img src="images/btn_search.svg" alt="조회" width="24" height="24">
+                                <span>조회</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <div class="data-table-container">
+                    <div class="data-table">
+                        <div class="table-header">
+                            <div class="table-cell">전송일자</div>
+                            <div class="table-cell">수신자 전화번호</div>
+                            <div class="table-cell">메세지 구분</div>
+                            <div class="table-cell">전송상태</div>
+                            <div class="table-cell">재전송</div>
+                        </div>
+                        
+                        <div class="table-body">
+                            <div class="table-row">
+                                <div class="table-cell">2025-08-27 12:55:00</div>
+                                <div class="table-cell">010-1234-5678</div>
+                                <div class="table-cell">고수온 예보</div>
+                                <div class="table-cell">성공</div>
+                                <div class="table-cell">
+                                    <button class="resend-btn">
+                                        <img src="images/forward_media.svg" alt="재전송" width="20" height="20">
+                                        <span>재전송</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">2025-08-27 12:55:00</div>
+                                <div class="table-cell">010-1234-5678</div>
+                                <div class="table-cell">고수온 예보</div>
+                                <div class="table-cell">성공</div>
+                                <div class="table-cell">
+                                    <button class="resend-btn">
+                                        <img src="images/forward_media.svg" alt="재전송" width="20" height="20">
+                                        <span>재전송</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">2025-08-27 12:55:00</div>
+                                <div class="table-cell">010-1234-5678</div>
+                                <div class="table-cell">고수온 예보</div>
+                                <div class="table-cell">성공</div>
+                                <div class="table-cell">
+                                    <button class="resend-btn">
+                                        <img src="images/forward_media.svg" alt="재전송" width="20" height="20">
+                                        <span>재전송</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">2025-08-27 12:55:00</div>
+                                <div class="table-cell">010-1234-5678</div>
+                                <div class="table-cell">고수온 예보</div>
+                                <div class="table-cell">성공</div>
+                                <div class="table-cell">
+                                    <button class="resend-btn">
+                                        <img src="images/forward_media.svg" alt="재전송" width="20" height="20">
+                                        <span>재전송</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">2025-08-27 12:55:00</div>
+                                <div class="table-cell">010-1234-5678</div>
+                                <div class="table-cell">고수온 예보</div>
+                                <div class="table-cell">성공</div>
+                                <div class="table-cell">
+                                    <button class="resend-btn">
+                                        <img src="images/forward_media.svg" alt="재전송" width="20" height="20">
+                                        <span>재전송</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">2025-08-27 12:55:00</div>
+                                <div class="table-cell">010-1234-5678</div>
+                                <div class="table-cell">고수온 예보</div>
+                                <div class="table-cell">성공</div>
+                                <div class="table-cell">
+                                    <button class="resend-btn">
+                                        <img src="images/forward_media.svg" alt="재전송" width="20" height="20">
+                                        <span>재전송</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">2025-08-27 12:55:00</div>
+                                <div class="table-cell">010-1234-5678</div>
+                                <div class="table-cell">고수온 예보</div>
+                                <div class="table-cell">성공</div>
+                                <div class="table-cell">
+                                    <button class="resend-btn">
+                                        <img src="images/forward_media.svg" alt="재전송" width="20" height="20">
+                                        <span>재전송</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">2025-08-27 12:55:00</div>
+                                <div class="table-cell">010-1234-5678</div>
+                                <div class="table-cell">고수온 예보</div>
+                                <div class="table-cell">성공</div>
+                                <div class="table-cell">
+                                    <button class="resend-btn">
+                                        <img src="images/forward_media.svg" alt="재전송" width="20" height="20">
+                                        <span>재전송</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">2025-08-27 12:55:00</div>
+                                <div class="table-cell">010-1234-5678</div>
+                                <div class="table-cell">고수온 예보</div>
+                                <div class="table-cell">성공</div>
+                                <div class="table-cell">
+                                    <button class="resend-btn">
+                                        <img src="images/forward_media.svg" alt="재전송" width="20" height="20">
+                                        <span>재전송</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="table-row">
+                                <div class="table-cell">2025-08-27 12:55:00</div>
+                                <div class="table-cell">010-1234-5678</div>
+                                <div class="table-cell">고수온 예보</div>
+                                <div class="table-cell">성공</div>
+                                <div class="table-cell">
+                                    <button class="resend-btn">
+                                        <img src="images/forward_media.svg" alt="재전송" width="20" height="20">
+                                        <span>재전송</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="pagination-container">
+                        <div class="pagination-info">
+                            <span>총 <strong>150</strong>건 중 <strong>1-10</strong>건 표시</span>
+                        </div>
+                        <div class="pagination">
+                            <button class="pagination-btn pagination-btn-first" disabled>
+                                <img src="images/cal_double_arrow_left.svg" alt="첫 페이지" width="16" height="16">
+                            </button>
+                            <button class="pagination-btn pagination-btn-prev" disabled>
+                                <img src="images/cal_arrow_left.svg" alt="이전 페이지" width="16" height="16">
+                            </button>
+                            <div class="pagination-pages">
+                                <button class="pagination-page active">1</button>
+                                <button class="pagination-page">2</button>
+                                <button class="pagination-page">3</button>
+                                <button class="pagination-page">4</button>
+                                <button class="pagination-page">5</button>
+                            </div>
+                            <button class="pagination-btn pagination-btn-next">
+                                <img src="images/cal_arrow_right.svg" alt="다음 페이지" width="16" height="16">
+                            </button>
+                            <button class="pagination-btn pagination-btn-last">
+                                <img src="images/cal_double_arrow_right.svg" alt="마지막 페이지" width="16" height="16">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer Placeholder -->
+        <div id="footer-placeholder"></div>
+    </div>
+
+    <script src="/js/admin-components.js"></script>
+    <script src="/js/message-log.js"></script>
+</body>
+</html>

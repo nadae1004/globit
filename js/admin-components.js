@@ -26,6 +26,7 @@ function setActiveAdminNavigation() {
 function getCurrentAdminPage() {
     const path = window.location.pathname;
     if (path.includes('admin-notification-service.html')) return 'notification-service';
+    if (path.includes('message-log.html')) return 'log';
     if (path.includes('admin-login.html')) return 'log';
     return 'notification-service'; // 기본값
 }
@@ -97,6 +98,12 @@ function initializeDropdownMenu() {
             const dropdownMenuItems = dropdownMenu.querySelectorAll('.dropdown-item');
             dropdownMenuItems.forEach(menuItem => {
                 menuItem.addEventListener('click', function(e) {
+                    // href가 있는 경우에만 페이지 이동 허용
+                    if (menuItem.getAttribute('href') && menuItem.getAttribute('href') !== '#') {
+                        // 페이지 이동을 위해 기본 동작 허용
+                        return;
+                    }
+                    
                     e.preventDefault();
                     console.log('Selected:', menuItem.textContent);
                     // 여기에 실제 페이지 이동 로직을 추가할 수 있습니다
