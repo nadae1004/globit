@@ -27,6 +27,7 @@ function getCurrentAdminPage() {
     const path = window.location.pathname;
     if (path.includes('admin-notification-service.html')) return 'notification-service';
     if (path.includes('message-log.html')) return 'log';
+    if (path.includes('scheduler-log.html')) return 'log';
     if (path.includes('admin-login.html')) return 'log';
     return 'notification-service'; // 기본값
 }

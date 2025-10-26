@@ -1,0 +1,694 @@
+/* Scheduler Log Page Styles */
+
+/* Admin Header Hover Effects */
+.admin-header .nav-item:hover .nav-line {
+    width: 100%;
+}
+
+.admin-header .nav-item:hover span {
+    color: #0064dd;
+    font-weight: 700;
+}
+
+/* Ensure nav-line is properly positioned for admin header */
+.admin-header .nav-line {
+    width: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #0064dd 0%, #088ec5 100%);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -27px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Main Section Layout */
+.admin-scheduler-log-main {
+    padding: 40px 120px;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+/* Page Title */
+.page-title {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: #18181a;
+    margin-bottom: 30px;
+    line-height: 28.64px;
+}
+
+/* Admin Section */
+.admin-section {
+    width: 100%;
+}
+
+/* Search Form */
+.search-form {
+    background-color: #f2f4f8;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.form-row {
+    display: flex;
+    gap: 30px;
+    align-items: flex-end;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-field:first-child {
+    flex: 1 1 511px;
+    min-width: 400px;
+}
+
+.form-field:nth-child(2) {
+    flex: 1 1 317px;
+    min-width: 200px;
+}
+
+.form-field:nth-child(3) {
+    flex: 1 1 317px;
+    min-width: 200px;
+}
+
+.form-field:last-child {
+    flex: 0 0 auto;
+}
+
+.form-field > label {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #18181a;
+    line-height: 19.09px;
+}
+
+.form-field > label span {
+    color: #F46D19;
+}
+
+.form-field input[type="date"],
+.form-field select {
+    width: 100%;
+    height: 50px;
+    background-color: #ffffff;
+    border: 1px solid #c8c9cf;
+    border-radius: 10px;
+    padding: 0 20px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 16px;
+    color: #18181a;
+    line-height: 22.88px;
+    letter-spacing: 0.17px;
+    box-sizing: border-box;
+}
+
+.form-field select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+/* Date Range Inputs */
+.date-range-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.date-input-group {
+    flex: 1;
+}
+
+.date-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.date-input-wrapper input[type="date"],
+.date-input-wrapper input[type="text"] {
+    width: 100%;
+    height: 50px;
+    background-color: #ffffff;
+    border: 1px solid #c8c9cf;
+    border-radius: 10px;
+    padding: 0 50px 0 20px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 16px;
+    color: #18181a;
+    line-height: 22.88px;
+    letter-spacing: 0.17px;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.date-input-wrapper input[type="text"] {
+    cursor: pointer;
+}
+
+.date-input-wrapper input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.calendar-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+}
+
+.date-separator {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #18181a;
+    line-height: 19.09px;
+    flex-shrink: 0;
+}
+
+.search-btn {
+    height: 50px;
+    background-color: #0064dd;
+    border: none;
+    border-radius: 10px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    min-width: 113px;
+}
+
+.search-btn:hover {
+    background-color: #0052b3;
+}
+
+.search-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.search-btn span {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    line-height: 33.2px;
+    letter-spacing: 0.4px;
+}
+
+/* Data Table */
+.data-table-container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #e4e4e6;
+}
+
+.data-table {
+    width: 100%;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    background-color: #f2f4f8;
+    border-bottom: 1px solid #e4e4e6;
+    height: 55px;
+}
+
+.table-header .table-cell {
+    padding: 16px 20px;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #9191a1;
+    line-height: 22.88px;
+    letter-spacing: 0.17px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1600px) {
+    .table-header .table-cell {
+        padding: 16px 15px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .table-header .table-cell {
+        padding: 16px 12px;
+        font-size: 14px;
+    }
+}
+
+.table-body {
+    overflow: visible;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid #e4e4e6;
+    min-height: 67px;
+    transition: background-color 0.2s ease;
+}
+
+.table-row:hover {
+    background-color: #f8f9ff;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-cell {
+    padding: 16px 20px;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #18181a;
+    line-height: 22.88px;
+    letter-spacing: 0.17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 1600px) {
+    .table-cell {
+        padding: 16px 15px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .table-cell {
+        padding: 16px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Status Colors - removed to match other columns */
+
+/* Responsive Design */
+@media (min-width: 1920px) {
+    .admin-scheduler-log-main {
+        padding: 40px 160px;
+    }
+}
+
+@media (max-width: 1600px) {
+    .form-field:first-child {
+        flex: 1 1 450px;
+        min-width: 380px;
+    }
+    
+    .form-field:nth-child(2),
+    .form-field:nth-child(3) {
+        flex: 1 1 280px;
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .admin-scheduler-log-main {
+        padding: 40px 120px;
+    }
+    
+    .form-field:first-child {
+        flex: 1 1 400px;
+        min-width: 350px;
+    }
+    
+    .form-field:nth-child(2),
+    .form-field:nth-child(3) {
+        flex: 1 1 250px;
+        min-width: 160px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .admin-scheduler-log-main {
+        padding: 40px 80px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 20px;
+        align-items: stretch;
+    }
+    
+    .form-field:first-child,
+    .form-field:nth-child(2),
+    .form-field:nth-child(3) {
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .form-field:last-child {
+        flex: 1;
+    }
+    
+    .search-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-scheduler-log-main {
+        padding: 25px 40px;
+    }
+    
+    .page-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .search-form {
+        padding: 20px;
+        border-radius: 15px;
+    }
+    
+    .form-row {
+        gap: 15px;
+    }
+    
+    .form-field:first-child,
+    .form-field:nth-child(2),
+    .form-field:nth-child(3) {
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .form-field label {
+        font-size: 14px;
+    }
+    
+    .form-field input[type="date"],
+    .form-field select {
+        height: 45px;
+        font-size: 14px;
+        padding: 0 15px;
+    }
+    
+    .date-input-wrapper input[type="date"],
+    .date-input-wrapper input[type="text"] {
+        height: 45px;
+        font-size: 14px;
+        padding: 0 45px 0 15px;
+    }
+    
+    .calendar-icon {
+        right: 15px;
+        width: 20px;
+        height: 20px;
+    }
+    
+    .search-btn {
+        height: 45px;
+        padding: 0 15px;
+    }
+    
+    .search-btn span {
+        font-size: 16px;
+    }
+    
+    .data-table-container {
+        border-radius: 15px;
+    }
+    
+    .table-header,
+    .table-row {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+    
+    .table-header .table-cell,
+    .table-cell {
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-scheduler-log-main {
+        padding: 15px 30px;
+    }
+    
+    .page-title {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
+    .search-form {
+        padding: 15px;
+        border-radius: 12px;
+    }
+    
+    .form-field label {
+        font-size: 13px;
+    }
+    
+    .form-field input[type="date"],
+    .form-field select {
+        height: 40px;
+        font-size: 13px;
+        padding: 0 12px;
+    }
+    
+    .date-input-wrapper input[type="date"],
+    .date-input-wrapper input[type="text"] {
+        height: 40px;
+        font-size: 13px;
+        padding: 0 40px 0 12px;
+    }
+    
+    .calendar-icon {
+        right: 12px;
+        width: 18px;
+        height: 18px;
+    }
+    
+    .search-btn {
+        height: 40px;
+        padding: 0 12px;
+    }
+    
+    .search-btn span {
+        font-size: 14px;
+    }
+    
+    .data-table-container {
+        border-radius: 12px;
+    }
+    
+    .table-header,
+    .table-row {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+    
+    .table-header .table-cell,
+    .table-cell {
+        padding: 8px 5px;
+        font-size: 11px;
+    }
+}
+
+/* Pagination Styles */
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #ffffff;
+    border-top: 1px solid #e4e4e6;
+}
+
+.pagination-info {
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #5e5e6d;
+    line-height: 20px;
+}
+
+.pagination-info strong {
+    font-weight: 600;
+    color: #18181a;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pagination-btn {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #e4e4e6;
+    border-radius: 8px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: #f8f9ff;
+    border-color: #0064dd;
+}
+
+.pagination-btn:disabled {
+    background-color: #f2f4f8;
+    border-color: #e4e4e6;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.pagination-btn img {
+    width: 16px;
+    height: 16px;
+}
+
+.pagination-pages {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0 8px;
+}
+
+.pagination-page {
+    min-width: 32px;
+    height: 32px;
+    border: 1px solid #e4e4e6;
+    border-radius: 8px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #18181a;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0 8px;
+}
+
+.pagination-page:hover {
+    background-color: #f8f9ff;
+    border-color: #0064dd;
+}
+
+.pagination-page.active {
+    background-color: #0064dd;
+    border-color: #0064dd;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.pagination-page.active:hover {
+    background-color: #0052b3;
+    border-color: #0052b3;
+}
+
+/* Responsive Pagination */
+@media (max-width: 768px) {
+    .pagination-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    .pagination-info {
+        font-size: 13px;
+        text-align: center;
+    }
+    
+    .pagination {
+        gap: 6px;
+    }
+    
+    .pagination-btn {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .pagination-btn img {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .pagination-pages {
+        gap: 3px;
+        margin: 0 6px;
+    }
+    
+    .pagination-page {
+        min-width: 28px;
+        height: 28px;
+        font-size: 13px;
+        padding: 0 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagination-container {
+        padding: 12px 15px;
+    }
+    
+    .pagination-info {
+        font-size: 12px;
+    }
+    
+    .pagination-btn {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .pagination-btn img {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .pagination-pages {
+        gap: 2px;
+        margin: 0 4px;
+    }
+    
+    .pagination-page {
+        min-width: 24px;
+        height: 24px;
+        font-size: 12px;
+        padding: 0 4px;
+    }
+}
+
